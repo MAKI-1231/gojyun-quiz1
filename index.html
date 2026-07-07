@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- FIXED-V5-JA-WRAP: question Japanese text is measured and split by pixel width, 2026-07-07 -->
 <title>おとなの中学英語 語順クイズ｜さぼてん英会話</title>
 <style>
 :root {
@@ -19,6 +20,7 @@
   --ok:#2f7d5c;
 }
 * { box-sizing:border-box; }
+html, body { overflow-x:hidden; }
 body {
   margin:0;
   font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",system-ui,sans-serif;
@@ -93,18 +95,44 @@ button { font:inherit; }
   background:#fff;
   text-align:center;
   position:relative;
-  overflow:hidden;
+  overflow:visible;
 }
 .questionBox::before,.questionBox::after { position:absolute; font-size:1.9rem; opacity:.14; }
 .questionBox::before { content:"🔎"; top:10px; left:14px; }
 .questionBox::after { content:"🌵"; right:14px; bottom:10px; }
 .qLabel { color:var(--muted); font-weight:900; font-size:1rem; margin-bottom:8px; }
 .question {
-  font-size:clamp(1.55rem,5.5vw,3rem);
-  line-height:1.3;
+  font-size:clamp(1.45rem,4.8vw,2.65rem);
+  line-height:1.35;
   font-weight:950;
   color:#37463d;
-  word-break:keep-all;
+  max-width:100%;
+  min-width:0;
+  width:100%;
+  white-space:normal !important;
+  overflow-wrap:anywhere !important;
+  word-break:break-word !important;
+  line-break:anywhere;
+  text-wrap:balance;
+}
+.question b,
+.question .jaLine {
+  display:block;
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  white-space:normal !important;
+  overflow-wrap:anywhere !important;
+  word-break:break-word !important;
+  line-break:anywhere;
+}
+.question.long-ja {
+  font-size:clamp(1.20rem,3.9vw,2.05rem);
+  line-height:1.48;
+}
+.question.very-long-ja {
+  font-size:clamp(1.06rem,3.4vw,1.65rem);
+  line-height:1.55;
 }
 .tokenArea {
   display:flex;
@@ -194,7 +222,9 @@ footer { text-align:center; color:#6b7b70; margin-top:18px; font-weight:900; fon
   .questionBox { padding:15px 11px; border-radius:18px; }
   .questionBox::before, .questionBox::after { display:none; }
   .qLabel { font-size:.9rem; margin-bottom:5px; }
-  .question { font-size:1.35rem; line-height:1.35; }
+  .question { font-size:1.10rem; line-height:1.48; }
+  .question.long-ja { font-size:1.02rem; line-height:1.52; }
+  .question.very-long-ja { font-size:.96rem; line-height:1.58; }
   .tokenArea { gap:7px; padding:9px; min-height:48px; margin-top:8px; border-radius:16px; }
   .tokenBtn,.selectedToken { padding:9px 10px; font-size:.98rem; border-radius:14px; }
   .smallRow { gap:7px; margin-top:8px; }
@@ -206,6 +236,184 @@ footer { text-align:center; color:#6b7b70; margin-top:18px; font-weight:900; fon
   .message { font-size:1.05rem; padding:11px; border-radius:16px; margin:9px 0; }
   .reviewItem { font-size:.9rem; padding:8px 10px; }
 }
+
+
+/* === v3 emergency fix: Japanese prompt must never overflow/crop === */
+.questionBox {
+  width: 100%;
+  max-width: 100%;
+  overflow: visible !important;
+}
+#questionText,
+.question,
+.question b,
+.question .jaLine {
+  display: block !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  white-space: pre-line !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-all !important;
+  line-break: anywhere !important;
+  text-align: center !important;
+}
+#questionText {
+  font-size: clamp(1.25rem, 3.8vw, 2.05rem) !important;
+  line-height: 1.55 !important;
+  letter-spacing: .02em;
+}
+#questionText.long-ja {
+  font-size: clamp(1.12rem, 3.2vw, 1.72rem) !important;
+}
+#questionText.very-long-ja {
+  font-size: clamp(1.00rem, 2.8vw, 1.42rem) !important;
+}
+@media (max-width:520px) {
+  #questionText {
+    font-size: 1.12rem !important;
+    line-height: 1.58 !important;
+  }
+  #questionText.long-ja {
+    font-size: 1.02rem !important;
+  }
+  #questionText.very-long-ja {
+    font-size: .94rem !important;
+  }
+}
+
+
+
+/* === v4 final fix: Japanese prompt is rendered as real separate line blocks === */
+.questionBox {
+  width:100% !important;
+  max-width:100% !important;
+  overflow:visible !important;
+  padding-left:16px !important;
+  padding-right:16px !important;
+}
+#questionText.safePrompt {
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:.12em !important;
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  margin:0 auto !important;
+  padding:0 6px !important;
+  box-sizing:border-box !important;
+  white-space:normal !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+  font-size:clamp(1.26rem, 2.6vw, 1.78rem) !important;
+  line-height:1.42 !important;
+  letter-spacing:.02em !important;
+  word-break:normal !important;
+  overflow-wrap:normal !important;
+  text-align:center !important;
+}
+#questionText.safePrompt .promptLine {
+  display:block !important;
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  box-sizing:border-box !important;
+  white-space:normal !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+  word-break:keep-all !important;
+  overflow-wrap:normal !important;
+  line-break:strict !important;
+  text-align:center !important;
+}
+#questionText.safePrompt.long-ja {
+  font-size:clamp(1.16rem, 2.3vw, 1.58rem) !important;
+}
+#questionText.safePrompt.very-long-ja {
+  font-size:clamp(1.08rem, 2.0vw, 1.42rem) !important;
+}
+@media (max-width:520px) {
+  .questionBox { padding-left:10px !important; padding-right:10px !important; }
+  #questionText.safePrompt {
+    font-size:1.12rem !important;
+    line-height:1.48 !important;
+    padding:0 2px !important;
+  }
+  #questionText.safePrompt.long-ja { font-size:1.04rem !important; }
+  #questionText.safePrompt.very-long-ja { font-size:.98rem !important; }
+}
+
+
+/* === FIXED-V5-JA-WRAP: final override. Japanese prompt must never be a clipped single line. === */
+.questionBox {
+  width:100% !important;
+  max-width:100% !important;
+  overflow:visible !important;
+  padding-left:14px !important;
+  padding-right:14px !important;
+}
+#questionText,
+#questionText.safePrompt {
+  display:block !important;
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  margin:0 auto !important;
+  padding:0 .35rem !important;
+  box-sizing:border-box !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+  white-space:normal !important;
+  text-align:center !important;
+  color:#37463d !important;
+  font-weight:950 !important;
+  font-size:clamp(1.28rem, 2.45vw, 1.88rem) !important;
+  line-height:1.48 !important;
+  letter-spacing:.01em !important;
+}
+#questionText b,
+#questionText .promptLine,
+#questionText.safePrompt .promptLine {
+  display:block !important;
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  margin:0 auto !important;
+  padding:0 !important;
+  box-sizing:border-box !important;
+  white-space:normal !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+  word-break:break-all !important;
+  overflow-wrap:anywhere !important;
+  line-break:anywhere !important;
+  text-align:center !important;
+}
+#questionText.long-ja,
+#questionText.very-long-ja {
+  font-size:clamp(1.18rem, 2.1vw, 1.58rem) !important;
+  line-height:1.55 !important;
+}
+@media (max-width:520px) {
+  .questionBox { padding:16px 10px !important; }
+  #questionText,
+  #questionText.safePrompt {
+    font-size:1.24rem !important;
+    line-height:1.56 !important;
+    padding:0 .1rem !important;
+  }
+  #questionText.long-ja,
+  #questionText.very-long-ja {
+    font-size:1.12rem !important;
+    line-height:1.62 !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -314,6 +522,97 @@ function shuffle(arr) {
 function escapeHTML(s) {
   return String(s).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
 }
+function promptAvailableWidth() {
+  const el = $("questionText");
+  const box = el && el.parentElement ? el.parentElement : null;
+  const base = box ? box.clientWidth : Math.min(window.innerWidth || 360, 760);
+  // 内側余白・アイコン分を安全側に引く。ここを小さめにすることで、絶対に右端で切れない。
+  return Math.max(160, Math.floor(base - 64));
+}
+
+function getPromptFont(el) {
+  const style = window.getComputedStyle(el);
+  return `${style.fontWeight || 950} ${style.fontSize || '20px'} ${style.fontFamily || 'sans-serif'}`;
+}
+
+function measureTextWidth(ctx, text) {
+  try { return ctx.measureText(text).width; }
+  catch(e) { return Array.from(text).length * 22; }
+}
+
+function splitJapaneseByPixelWidth(text) {
+  const raw = String(text || "").trim();
+  const chars = Array.from(raw);
+  const el = $("questionText");
+  const maxWidth = promptAvailableWidth();
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+  ctx.font = getPromptFont(el);
+
+  const lines = [];
+  let line = "";
+  const softBreakChars = new Set(Array.from("はがをにでへとものやか、。・／/ "));
+
+  for (const ch of chars) {
+    const trial = line + ch;
+    if (line && measureTextWidth(ctx, trial) > maxWidth) {
+      // できれば助詞や句読点の後で切る。ただし幅を超える行は絶対に残さない。
+      let cut = -1;
+      const lineChars = Array.from(line);
+      for (let i = lineChars.length - 1; i >= Math.max(3, lineChars.length - 6); i--) {
+        if (softBreakChars.has(lineChars[i])) { cut = i + 1; break; }
+      }
+      if (cut > 0 && cut < lineChars.length) {
+        const first = lineChars.slice(0, cut).join("");
+        const second = lineChars.slice(cut).join("");
+        if (measureTextWidth(ctx, first) <= maxWidth && second) {
+          lines.push(first);
+          line = second + ch;
+        } else {
+          lines.push(line);
+          line = ch;
+        }
+      } else {
+        lines.push(line);
+        line = ch;
+      }
+    } else {
+      line = trial;
+    }
+  }
+  if (line) lines.push(line);
+
+  // 念のため、まだ幅を超える行は1文字ずつ再分割する。
+  const safe = [];
+  for (const ln of lines) {
+    let buf = "";
+    for (const ch of Array.from(ln)) {
+      const trial = buf + ch;
+      if (buf && measureTextWidth(ctx, trial) > maxWidth) {
+        safe.push(buf);
+        buf = ch;
+      } else {
+        buf = trial;
+      }
+    }
+    if (buf) safe.push(buf);
+  }
+  return safe;
+}
+
+function makeJapanesePromptHTML(text) {
+  return splitJapaneseByPixelWidth(text)
+    .map(line => `<span class="promptLine">${escapeHTML(line)}</span>`)
+    .join("");
+}
+
+function renderJapanesePrompt(el, text) {
+  el.className = "question safePrompt";
+  if ((text || "").length >= 18) el.classList.add("long-ja");
+  if ((text || "").length >= 28) el.classList.add("very-long-ja");
+  el.innerHTML = makeJapanesePromptHTML(text);
+}
+
 function normalizeSentence(s) {
   return (s || "")
     .replace(/[“”]/g, '"')
@@ -395,7 +694,8 @@ function showQuestion() {
   $("themeBadge").textContent = q.theme;
   $("levelBadge").textContent = q.level;
   $("scoreBadge").textContent = `正解 ${score}`;
-  $("questionText").innerHTML = `<b>${escapeHTML(q.ja)}</b>`;
+  const questionEl = $("questionText");
+  renderJapanesePrompt(questionEl, q.ja);
 
   currentTokens = shuffle(q.tokens.map((text, i) => ({ text, id: i })));
   renderWordBank();
@@ -535,6 +835,13 @@ function showResult() {
   }
   setTimeout(() => $("result").scrollIntoView({ behavior: "smooth", block: "start" }), 50);
 }
+
+window.addEventListener("resize", () => {
+  if (quiz.length && quiz[index]) {
+    const el = $("questionText");
+    if (el) renderJapanesePrompt(el, quiz[index].ja);
+  }
+});
 
 $("startBtn").addEventListener("click", startQuiz);
 $("againBtn").addEventListener("click", startQuiz);
