@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>期末考査対策 英語クイズ｜さぼてん英会話</title>
+<!-- FIXED-V5-JA-WRAP: question Japanese text is measured and split by pixel width, 2026-07-07 -->
+<title>おとなの中学英語 語順クイズ｜さぼてん英会話</title>
 <style>
 :root {
   --green:#9fd8b6;
@@ -19,280 +20,444 @@
   --ok:#2f7d5c;
 }
 * { box-sizing:border-box; }
+html, body { overflow-x:hidden; }
 body {
   margin:0;
   font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",system-ui,sans-serif;
   background:
-    radial-gradient(circle at 9% 8%, rgba(255,219,231,.78) 0 8rem, transparent 8rem),
-    radial-gradient(circle at 88% 16%, rgba(255,242,168,.76) 0 8rem, transparent 8rem),
+    radial-gradient(circle at 9% 8%, rgba(255,219,231,.70) 0 8rem, transparent 8rem),
+    radial-gradient(circle at 88% 16%, rgba(255,242,168,.72) 0 8rem, transparent 8rem),
     radial-gradient(circle at 50% 100%, rgba(159,216,182,.35) 0 14rem, transparent 14rem),
     linear-gradient(160deg,#f8fff9 0%,#fff8fb 58%,#fff9d7 100%);
   color:var(--ink);
   min-height:100vh;
 }
-.wrap { max-width:1040px; margin:0 auto; padding:22px 16px 34px; }
+.wrap { max-width:1040px; margin:0 auto; padding:18px 14px 30px; }
 header {
   background:rgba(255,255,255,.95);
   border:2px solid var(--line);
-  border-radius:30px;
-  padding:24px 20px;
+  border-radius:28px;
+  padding:20px 18px;
   box-shadow:0 10px 30px rgba(57,106,78,.12);
   text-align:center;
   position:relative;
   overflow:hidden;
 }
-header::before { content:"📚"; position:absolute; left:18px; top:18px; font-size:2.5rem; opacity:.20; }
-header::after { content:"✏️"; position:absolute; right:18px; bottom:18px; font-size:2.5rem; opacity:.20; }
-h1 { margin:0 0 8px; font-size:clamp(2rem,5vw,3.35rem); color:var(--deep); letter-spacing:.04em; font-weight:950; }
-.subtitle { font-size:clamp(1.05rem,2.4vw,1.35rem); font-weight:900; color:#4e6658; line-height:1.65; }
-.note { margin-top:10px; color:var(--muted); font-size:1rem; line-height:1.7; font-weight:800; }
-.heroArt { display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin:10px 0 0; }
-.sticker {
-  min-width:130px;
-  background:linear-gradient(180deg,#fff 0%,#f6fff9 100%);
-  border:2px solid var(--line);
-  border-radius:24px;
-  padding:11px 13px;
-  box-shadow:0 6px 16px rgba(57,106,78,.08);
-}
-.sticker .emoji { display:block; font-size:1.55rem; line-height:1; margin-bottom:4px; }
-.sticker .label { font-size:.95rem; font-weight:950; color:var(--deep); }
+header::before { content:"🌵"; position:absolute; left:18px; top:18px; font-size:2.4rem; opacity:.18; }
+header::after { content:"✏️"; position:absolute; right:18px; bottom:18px; font-size:2.4rem; opacity:.18; }
+h1 { margin:0 0 6px; font-size:clamp(1.9rem,5vw,3.2rem); color:var(--deep); letter-spacing:.03em; font-weight:950; }
+.subtitle { font-size:clamp(1rem,2.4vw,1.28rem); font-weight:900; color:#4e6658; line-height:1.5; }
+.mini { margin-top:8px; color:var(--muted); font-size:.95rem; font-weight:800; }
 .panel {
-  margin-top:18px;
+  margin-top:14px;
   background:rgba(255,255,255,.95);
   border:2px solid var(--line);
-  border-radius:28px;
-  padding:20px;
+  border-radius:26px;
+  padding:18px;
   box-shadow:0 8px 24px rgba(57,106,78,.10);
 }
-.section-title { font-size:1.35rem; font-weight:950; color:var(--deep); margin:0 0 12px; }
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
-button,input { font:inherit; }
-.modeBtn,.choiceBtn,.startBtn,.subBtn,.tokenBtn,.selectedToken,.smallBtn {
+.section-title { font-size:1.25rem; font-weight:950; color:var(--deep); margin:0 0 10px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:10px; }
+button { font:inherit; }
+.selectBtn,.startBtn,.subBtn,.tokenBtn,.selectedToken,.smallBtn,.nextBtn {
   border:2px solid var(--line);
   background:#fff;
-  border-radius:22px;
-  padding:16px 14px;
+  border-radius:20px;
+  padding:13px 12px;
   cursor:pointer;
   font-weight:950;
   color:var(--ink);
   transition:.15s transform,.15s box-shadow,.15s background,.15s border-color;
 }
-.modeBtn { min-height:92px; font-size:1.12rem; line-height:1.45; }
-.modeIcon { display:block; font-size:1.75rem; line-height:1; margin-bottom:6px; }
-.choiceBtn {
-  min-height:78px;
-  font-size:clamp(1.3rem,3.7vw,1.9rem);
-  text-align:left;
-  line-height:1.35;
-}
-.choiceBtn b,.question b { font-weight:950; }
-.modeBtn:hover,.choiceBtn:hover,.startBtn:hover,.subBtn:hover,.tokenBtn:hover,.smallBtn:hover {
+.selectBtn { min-height:66px; font-size:1.03rem; line-height:1.35; }
+.selectBtn .icon { display:block; font-size:1.45rem; line-height:1; margin-bottom:4px; }
+.selectBtn:hover,.startBtn:hover,.subBtn:hover,.tokenBtn:hover,.smallBtn:hover,.nextBtn:hover {
   transform:translateY(-1px);
   box-shadow:0 8px 18px rgba(47,111,79,.16);
 }
 .selected { background:var(--soft); border-color:var(--green); color:var(--deep); }
 .startBtn {
-  display:block; width:100%; margin-top:18px;
+  display:block; width:100%; margin-top:14px;
   background:var(--deep); color:#fff; border-color:var(--deep);
-  font-size:1.35rem; padding:18px;
+  font-size:1.25rem; padding:16px;
 }
-.subBtn { background:var(--yellow); border-color:#eed66d; font-size:1.15rem; }
-.topline { display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between; margin-bottom:14px; }
+.subBtn { background:var(--yellow); border-color:#eed66d; font-size:1.08rem; width:100%; margin-top:10px; }
+.topline { display:flex; gap:8px; flex-wrap:wrap; align-items:center; justify-content:space-between; margin-bottom:10px; }
 .badge {
   display:inline-flex; align-items:center; gap:6px;
   background:var(--soft); border:2px solid var(--line); color:var(--deep);
-  border-radius:999px; padding:9px 13px; font-weight:950; font-size:1rem;
+  border-radius:999px; padding:8px 11px; font-weight:950; font-size:.95rem;
 }
 .questionBox {
-  border-radius:26px;
+  border-radius:24px;
   border:2px solid var(--line);
-  padding:26px 18px;
+  padding:22px 16px;
   background:#fff;
   text-align:center;
   position:relative;
-  overflow:hidden;
+  overflow:visible;
 }
-.questionBox::before,.questionBox::after { position:absolute; font-size:2rem; opacity:.16; }
+.questionBox::before,.questionBox::after { position:absolute; font-size:1.9rem; opacity:.14; }
 .questionBox::before { content:"🔎"; top:10px; left:14px; }
 .questionBox::after { content:"🌵"; right:14px; bottom:10px; }
-.qLabel { color:var(--muted); font-weight:900; font-size:1.08rem; margin-bottom:10px; }
+.qLabel { color:var(--muted); font-weight:900; font-size:1rem; margin-bottom:8px; }
 .question {
-  font-size:clamp(1.85rem,6.2vw,3.55rem);
-  line-height:1.25;
+  font-size:clamp(1.45rem,4.8vw,2.65rem);
+  line-height:1.35;
   font-weight:950;
-  color:var(--deep);
-  word-break:keep-all;
+  color:#37463d;
+  max-width:100%;
+  min-width:0;
+  width:100%;
+  white-space:normal !important;
+  overflow-wrap:anywhere !important;
+  word-break:break-word !important;
+  line-break:anywhere;
+  text-wrap:balance;
 }
-.question.ja { font-size:clamp(1.55rem,5.6vw,3rem); color:#37463d; }
-.options { display:grid; gap:12px; margin-top:16px; }
+.question b,
+.question .jaLine {
+  display:block;
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  white-space:normal !important;
+  overflow-wrap:anywhere !important;
+  word-break:break-word !important;
+  line-break:anywhere;
+}
+.question.long-ja {
+  font-size:clamp(1.20rem,3.9vw,2.05rem);
+  line-height:1.48;
+}
+.question.very-long-ja {
+  font-size:clamp(1.06rem,3.4vw,1.65rem);
+  line-height:1.55;
+}
 .tokenArea {
   display:flex;
-  gap:10px;
+  gap:9px;
   flex-wrap:wrap;
-  padding:14px;
+  padding:12px;
   border:2px dashed var(--line);
-  border-radius:22px;
+  border-radius:20px;
   background:#fbfffc;
-  min-height:76px;
-  margin-top:14px;
+  min-height:68px;
+  margin-top:12px;
 }
 .answerArea {
   background:var(--blue);
   border-color:#cfe6f6;
 }
 .tokenBtn,.selectedToken {
-  padding:12px 14px;
-  font-size:clamp(1.05rem,3.2vw,1.45rem);
-  border-radius:18px;
+  padding:11px 13px;
+  font-size:clamp(1.02rem,3.1vw,1.35rem);
+  border-radius:16px;
 }
 .selectedToken { background:#fff; border-color:#b9dceb; }
-.smallRow { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
-.smallBtn { padding:12px 16px; background:#fff; font-size:1.05rem; }
-.inputRow { display:flex; gap:10px; margin-top:18px; flex-wrap:wrap; }
-.spellInput {
-  flex:1 1 320px;
-  border:3px solid var(--line);
-  border-radius:22px;
-  padding:16px 18px;
-  font-size:clamp(1.45rem,4vw,2.25rem);
-  font-weight:950;
-  background:#fff;
-}
+.smallRow { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+.smallBtn { padding:11px 14px; background:#fff; font-size:1rem; }
 .checkBtn {
-  flex:0 0 auto;
+  flex:1 1 160px;
   border:0;
   background:var(--deep);
   color:#fff;
-  border-radius:22px;
-  padding:16px 24px;
-  font-size:1.25rem;
+  border-radius:18px;
+  padding:12px 18px;
+  font-size:1.12rem;
   font-weight:950;
   cursor:pointer;
 }
 .feedback {
-  min-height:50px;
-  margin-top:14px;
-  padding:12px 14px;
-  border-radius:20px;
-  font-size:1.15rem;
+  min-height:46px;
+  margin-top:12px;
+  padding:11px 13px;
+  border-radius:18px;
+  font-size:1.08rem;
   font-weight:950;
   line-height:1.5;
 }
 .ok { background:#e8fff1; color:var(--ok); border:2px solid #b9e7ca; }
 .ng { background:#fff0f4; color:var(--danger); border:2px solid #ffd1dc; }
-.result { text-align:center; padding:28px 14px; }
-.score { font-size:clamp(2.2rem,8vw,4.5rem); color:var(--deep); font-weight:950; margin:10px 0; }
-.message {
-  font-size:clamp(1.32rem,4vw,2rem);
-  font-weight:950;
-  line-height:1.6;
-  background:var(--soft);
-  border:2px solid var(--line);
-  padding:18px;
-  border-radius:24px;
-  margin:16px 0;
-}
-.review { text-align:left; margin-top:16px; display:grid; gap:8px; }
-.reviewItem { background:#fff; border:1px solid var(--line); border-radius:18px; padding:10px 12px; font-size:1rem; line-height:1.5; }
-.hidden { display:none !important; }
 .nextBtn {
   display:block;
   width:100%;
   margin-top:10px;
-  border:0;
   background:var(--deep);
   color:#fff;
-  border-radius:20px;
-  padding:15px 18px;
-  font-size:1.25rem;
-  font-weight:950;
-  cursor:pointer;
+  border-color:var(--deep);
+  font-size:1.16rem;
 }
-footer { text-align:center; color:#6b7b70; margin-top:20px; font-weight:900; font-size:.95rem; }
-@media (min-width:760px) { .options { grid-template-columns:1fr 1fr; } }
+.result { text-align:center; padding:22px 10px; }
+.score { font-size:clamp(2rem,8vw,4.2rem); color:var(--deep); font-weight:950; margin:8px 0; }
+.message {
+  font-size:clamp(1.2rem,4vw,1.8rem);
+  font-weight:950;
+  line-height:1.55;
+  background:var(--soft);
+  border:2px solid var(--line);
+  padding:16px;
+  border-radius:22px;
+  margin:12px 0;
+}
+.review { text-align:left; margin-top:14px; display:grid; gap:8px; }
+.reviewItem { background:#fff; border:1px solid var(--line); border-radius:16px; padding:9px 11px; font-size:.98rem; line-height:1.5; }
+.hidden { display:none !important; }
+footer { text-align:center; color:#6b7b70; margin-top:18px; font-weight:900; font-size:.92rem; }
 @media (max-width:520px) {
   .wrap { padding:8px 8px 18px; }
   header { border-radius:18px; padding:12px 10px; }
   header::before, header::after { display:none; }
   h1 { font-size:1.55rem; line-height:1.25; margin-bottom:4px; }
   .subtitle { font-size:.95rem; line-height:1.4; }
-  .heroArt { display:none; }
+  .mini { font-size:.82rem; margin-top:5px; }
   .panel { border-radius:18px; padding:12px; margin-top:10px; }
-  .section-title { font-size:1.08rem; margin-bottom:8px; }
-  .grid { gap:8px; }
-  .modeBtn { min-height:64px; padding:10px 8px; font-size:.98rem; border-radius:16px; }
-  .modeIcon { display:inline; font-size:1.05rem; margin-right:4px; }
+  .section-title { font-size:1.05rem; margin-bottom:8px; }
+  .grid { gap:8px; grid-template-columns:repeat(2, minmax(0,1fr)); }
+  .selectBtn { min-height:54px; padding:9px 7px; font-size:.92rem; border-radius:15px; }
+  .selectBtn .icon { display:inline; font-size:1rem; margin-right:3px; }
+  .startBtn { margin-top:10px; padding:13px; border-radius:16px; font-size:1.08rem; }
   .topline { gap:6px; margin-bottom:8px; }
-  .badge { padding:6px 9px; font-size:.86rem; }
-  .questionBox { padding:16px 12px; border-radius:18px; }
+  .badge { padding:6px 9px; font-size:.82rem; }
+  .questionBox { padding:15px 11px; border-radius:18px; }
   .questionBox::before, .questionBox::after { display:none; }
-  .qLabel { font-size:.92rem; margin-bottom:6px; }
-  .question { font-size:1.55rem; line-height:1.3; }
-  .question.ja { font-size:1.35rem; line-height:1.35; }
-  .options { gap:8px; margin-top:10px; }
-  .choiceBtn { min-height:56px; padding:11px 12px; font-size:1.08rem; border-radius:16px; }
-  .tokenArea { gap:7px; padding:9px; min-height:50px; margin-top:8px; border-radius:16px; }
-  .tokenBtn, .selectedToken { padding:9px 10px; font-size:1rem; border-radius:14px; }
-  .smallRow { gap:8px; margin-top:8px; }
-  .smallBtn { padding:10px 12px; font-size:.95rem; border-radius:14px; }
-  .checkBtn { width:100%; padding:12px 16px; border-radius:16px; font-size:1.05rem; }
-  .feedback { min-height:auto; margin-top:8px; padding:9px 10px; border-radius:14px; font-size:1rem; }
-  .nextBtn { margin-top:8px; padding:12px 16px; border-radius:16px; font-size:1.08rem; }
-  .score { font-size:2.3rem; margin:6px 0; }
-  .message { font-size:1.08rem; padding:12px; border-radius:16px; margin:10px 0; }
-  .reviewItem { font-size:.92rem; padding:8px 10px; }
+  .qLabel { font-size:.9rem; margin-bottom:5px; }
+  .question { font-size:1.10rem; line-height:1.48; }
+  .question.long-ja { font-size:1.02rem; line-height:1.52; }
+  .question.very-long-ja { font-size:.96rem; line-height:1.58; }
+  .tokenArea { gap:7px; padding:9px; min-height:48px; margin-top:8px; border-radius:16px; }
+  .tokenBtn,.selectedToken { padding:9px 10px; font-size:.98rem; border-radius:14px; }
+  .smallRow { gap:7px; margin-top:8px; }
+  .smallBtn { padding:9px 10px; font-size:.92rem; border-radius:14px; }
+  .checkBtn { width:100%; flex:1 1 100%; padding:11px 14px; border-radius:15px; font-size:1rem; }
+  .feedback { min-height:auto; margin-top:8px; padding:9px 10px; border-radius:14px; font-size:.98rem; }
+  .nextBtn { margin-top:8px; padding:11px 14px; border-radius:15px; font-size:1.04rem; }
+  .score { font-size:2.2rem; margin:5px 0; }
+  .message { font-size:1.05rem; padding:11px; border-radius:16px; margin:9px 0; }
+  .reviewItem { font-size:.9rem; padding:8px 10px; }
 }
+
+
+/* === v3 emergency fix: Japanese prompt must never overflow/crop === */
+.questionBox {
+  width: 100%;
+  max-width: 100%;
+  overflow: visible !important;
+}
+#questionText,
+.question,
+.question b,
+.question .jaLine {
+  display: block !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  white-space: pre-line !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-all !important;
+  line-break: anywhere !important;
+  text-align: center !important;
+}
+#questionText {
+  font-size: clamp(1.25rem, 3.8vw, 2.05rem) !important;
+  line-height: 1.55 !important;
+  letter-spacing: .02em;
+}
+#questionText.long-ja {
+  font-size: clamp(1.12rem, 3.2vw, 1.72rem) !important;
+}
+#questionText.very-long-ja {
+  font-size: clamp(1.00rem, 2.8vw, 1.42rem) !important;
+}
+@media (max-width:520px) {
+  #questionText {
+    font-size: 1.12rem !important;
+    line-height: 1.58 !important;
+  }
+  #questionText.long-ja {
+    font-size: 1.02rem !important;
+  }
+  #questionText.very-long-ja {
+    font-size: .94rem !important;
+  }
+}
+
+
+
+/* === v4 final fix: Japanese prompt is rendered as real separate line blocks === */
+.questionBox {
+  width:100% !important;
+  max-width:100% !important;
+  overflow:visible !important;
+  padding-left:16px !important;
+  padding-right:16px !important;
+}
+#questionText.safePrompt {
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:.12em !important;
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  margin:0 auto !important;
+  padding:0 6px !important;
+  box-sizing:border-box !important;
+  white-space:normal !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+  font-size:clamp(1.26rem, 2.6vw, 1.78rem) !important;
+  line-height:1.42 !important;
+  letter-spacing:.02em !important;
+  word-break:normal !important;
+  overflow-wrap:normal !important;
+  text-align:center !important;
+}
+#questionText.safePrompt .promptLine {
+  display:block !important;
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  box-sizing:border-box !important;
+  white-space:normal !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+  word-break:keep-all !important;
+  overflow-wrap:normal !important;
+  line-break:strict !important;
+  text-align:center !important;
+}
+#questionText.safePrompt.long-ja {
+  font-size:clamp(1.16rem, 2.3vw, 1.58rem) !important;
+}
+#questionText.safePrompt.very-long-ja {
+  font-size:clamp(1.08rem, 2.0vw, 1.42rem) !important;
+}
+@media (max-width:520px) {
+  .questionBox { padding-left:10px !important; padding-right:10px !important; }
+  #questionText.safePrompt {
+    font-size:1.12rem !important;
+    line-height:1.48 !important;
+    padding:0 2px !important;
+  }
+  #questionText.safePrompt.long-ja { font-size:1.04rem !important; }
+  #questionText.safePrompt.very-long-ja { font-size:.98rem !important; }
+}
+
+
+/* === FIXED-V5-JA-WRAP: final override. Japanese prompt must never be a clipped single line. === */
+.questionBox {
+  width:100% !important;
+  max-width:100% !important;
+  overflow:visible !important;
+  padding-left:14px !important;
+  padding-right:14px !important;
+}
+#questionText,
+#questionText.safePrompt {
+  display:block !important;
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  margin:0 auto !important;
+  padding:0 .35rem !important;
+  box-sizing:border-box !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+  white-space:normal !important;
+  text-align:center !important;
+  color:#37463d !important;
+  font-weight:950 !important;
+  font-size:clamp(1.28rem, 2.45vw, 1.88rem) !important;
+  line-height:1.48 !important;
+  letter-spacing:.01em !important;
+}
+#questionText b,
+#questionText .promptLine,
+#questionText.safePrompt .promptLine {
+  display:block !important;
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  margin:0 auto !important;
+  padding:0 !important;
+  box-sizing:border-box !important;
+  white-space:normal !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+  word-break:break-all !important;
+  overflow-wrap:anywhere !important;
+  line-break:anywhere !important;
+  text-align:center !important;
+}
+#questionText.long-ja,
+#questionText.very-long-ja {
+  font-size:clamp(1.18rem, 2.1vw, 1.58rem) !important;
+  line-height:1.55 !important;
+}
+@media (max-width:520px) {
+  .questionBox { padding:16px 10px !important; }
+  #questionText,
+  #questionText.safePrompt {
+    font-size:1.24rem !important;
+    line-height:1.56 !important;
+    padding:0 .1rem !important;
+  }
+  #questionText.long-ja,
+  #questionText.very-long-ja {
+    font-size:1.12rem !important;
+    line-height:1.62 !important;
+  }
+}
+
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <h1>期末考査対策<br>英語クイズ</h1>
-    <div class="subtitle">単語・熟語・重要文を10問ずつ練習</div>
-    <div class="heroArt">
-      <div class="sticker"><span class="emoji">📘</span><span class="label">単語・熟語</span></div>
-      <div class="sticker"><span class="emoji">🧩</span><span class="label">並べ替え</span></div>
-      <div class="sticker"><span class="emoji">✏️</span><span class="label">穴埋め</span></div>
-    </div>
-    
+    <h1>おとなの中学英語<br>語順クイズ</h1>
+    <div class="subtitle">語句カードを並べて、自然な英語の順番にしよう</div>
+    <div class="mini">5テーマ × 3レベル｜全300問</div>
   </header>
 
   <main>
     <section id="setup" class="panel">
-      <p class="section-title">練習メニューを選んでください</p>
-      <div class="grid" id="modeGrid">
-        <button class="modeBtn selected" data-mode="all"><span class="modeIcon">🎲</span>ぜんぶランダム<br><small>3種類から出題</small></button>
-        <button class="modeBtn" data-mode="vocab"><span class="modeIcon">📘</span>単語・熟語<br><small>英語⇄日本語 4択</small></button>
-        <button class="modeBtn" data-mode="reorder"><span class="modeIcon">🧩</span>重要文ならべ替え<br><small>語順を作る</small></button>
-        <button class="modeBtn" data-mode="cloze"><span class="modeIcon">✏️</span>穴埋め<br><small>重要ポイント</small></button>
-      </div>
+      <p class="section-title">場面を選ぶ</p>
+      <div class="grid" id="themeGrid"></div>
+
+      <p class="section-title" style="margin-top:16px;">難易度を選ぶ</p>
+      <div class="grid" id="levelGrid"></div>
+
       <button class="startBtn" id="startBtn">10問スタート</button>
     </section>
 
     <section id="quiz" class="panel hidden">
       <div class="topline">
         <span class="badge" id="progressBadge">1 / 10</span>
-        <span class="badge" id="modeBadge">ぜんぶランダム</span>
+        <span class="badge" id="themeBadge">ぜんぶ</span>
+        <span class="badge" id="levelBadge">ぜんぶ</span>
         <span class="badge" id="scoreBadge">正解 0</span>
       </div>
+
       <div class="questionBox">
-        <div class="qLabel" id="qLabel">意味を選びましょう</div>
-        <div class="question" id="questionText">because</div>
+        <div class="qLabel">日本語に合う英文を作りましょう</div>
+        <div class="question" id="questionText"></div>
       </div>
 
-      <div id="options" class="options"></div>
+      <p class="qLabel" style="margin-top:12px;">答え</p>
+      <div id="answerArea" class="tokenArea answerArea"></div>
 
-      <div id="reorderArea" class="hidden">
-        <p class="qLabel" style="margin-top:16px;">答え</p>
-        <div id="answerArea" class="tokenArea answerArea"></div>
-        <p class="qLabel" style="margin-top:14px;">語句カード</p>
-        <div id="wordBank" class="tokenArea"></div>
-        <div class="smallRow">
-          <button class="smallBtn" id="undoBtn">1つ戻す</button>
-          <button class="smallBtn" id="clearBtn">やり直す</button>
-          <button class="checkBtn" id="checkOrderBtn">答える</button>
-        </div>
+      <p class="qLabel" style="margin-top:12px;">語句カード</p>
+      <div id="wordBank" class="tokenArea"></div>
+
+      <div class="smallRow">
+        <button class="smallBtn" id="undoBtn">1つ戻す</button>
+        <button class="smallBtn" id="clearBtn">やり直す</button>
+        <button class="checkBtn" id="checkBtn">答える</button>
       </div>
 
       <div id="feedback" class="feedback hidden"></div>
@@ -303,39 +468,49 @@ footer { text-align:center; color:#6b7b70; margin-top:20px; font-weight:900; fon
       <div class="result">
         <p class="section-title">おつかれさまでした！</p>
         <div class="score" id="finalScore">8 / 10</div>
-        <div class="message" id="resultMessage">すばらしい集中力です。</div>
+        <div class="message" id="resultMessage"></div>
         <button class="startBtn" id="againBtn">もう一度10問</button>
-        <button class="subBtn" id="backBtn" style="margin-top:12px; width:100%;">メニューを選び直す</button>
+        <button class="subBtn" id="backBtn">場面・難易度を選び直す</button>
         <div class="review" id="review"></div>
       </div>
     </section>
   </main>
+
   <footer>© 2026 さぼてん英会話</footer>
 </div>
 
 <script>
-const DATA = {"vocab": [{"en": "through", "ja": "〜を通して", "kind": "単語", "type": "vocab", "id": "V001"}, {"en": "event", "ja": "行事／イベント", "kind": "単語", "type": "vocab", "id": "V002"}, {"en": "expo", "ja": "博覧会", "kind": "単語", "type": "vocab", "id": "V003"}, {"en": "introduce", "ja": "〜を紹介する", "kind": "単語", "type": "vocab", "id": "V004"}, {"en": "aspect", "ja": "側面", "kind": "単語", "type": "vocab", "id": "V005"}, {"en": "fashion", "ja": "ファッション", "kind": "単語", "type": "vocab", "id": "V006"}, {"en": "traditional", "ja": "伝統的な", "kind": "単語", "type": "vocab", "id": "V007"}, {"en": "foreign", "ja": "外国の", "kind": "単語", "type": "vocab", "id": "V008"}, {"en": "native", "ja": "出生地の／在来の", "kind": "単語", "type": "vocab", "id": "V009"}, {"en": "project", "ja": "企画／プロジェクト", "kind": "単語", "type": "vocab", "id": "V010"}, {"en": "present", "ja": "〜を発表する／提供する", "kind": "単語", "type": "vocab", "id": "V011"}, {"en": "excellent", "ja": "優れた", "kind": "単語", "type": "vocab", "id": "V012"}, {"en": "topic", "ja": "話題／主題", "kind": "単語", "type": "vocab", "id": "V013"}, {"en": "information", "ja": "情報", "kind": "単語", "type": "vocab", "id": "V014"}, {"en": "classmate", "ja": "同級生", "kind": "単語", "type": "vocab", "id": "V015"}, {"en": "culture", "ja": "文化", "kind": "単語", "type": "vocab", "id": "V016"}, {"en": "difference", "ja": "違い", "kind": "単語", "type": "vocab", "id": "V017"}, {"en": "uniform", "ja": "制服", "kind": "単語", "type": "vocab", "id": "V018"}, {"en": "hairstyle", "ja": "髪型", "kind": "単語", "type": "vocab", "id": "V019"}, {"en": "charm", "ja": "お守り", "kind": "単語", "type": "vocab", "id": "V020"}, {"en": "magazine", "ja": "雑誌", "kind": "単語", "type": "vocab", "id": "V021"}, {"en": "temple", "ja": "寺", "kind": "単語", "type": "vocab", "id": "V022"}, {"en": "smartphone", "ja": "スマートフォン", "kind": "単語", "type": "vocab", "id": "V023"}, {"en": "although", "ja": "〜だけれども", "kind": "単語", "type": "vocab", "id": "V024"}, {"en": "though", "ja": "〜だけれども", "kind": "単語", "type": "vocab", "id": "V025"}, {"en": "if", "ja": "もし〜なら", "kind": "単語", "type": "vocab", "id": "V026"}, {"en": "because", "ja": "〜だから", "kind": "単語", "type": "vocab", "id": "V027"}, {"en": "that", "ja": "〜ということ", "kind": "単語", "type": "vocab", "id": "V028"}, {"en": "chance", "ja": "機会", "kind": "単語", "type": "vocab", "id": "V029"}, {"en": "step", "ja": "一歩／段階", "kind": "単語", "type": "vocab", "id": "V030"}, {"en": "experience", "ja": "経験", "kind": "単語", "type": "vocab", "id": "V031"}, {"en": "worried", "ja": "心配して", "kind": "単語", "type": "vocab", "id": "V032"}, {"en": "alone", "ja": "ひとりで", "kind": "単語", "type": "vocab", "id": "V033"}, {"en": "agree", "ja": "賛成する／一致する", "kind": "単語", "type": "vocab", "id": "V034"}, {"en": "mix", "ja": "〜を混ぜる", "kind": "単語", "type": "vocab", "id": "V035"}, {"en": "examination", "ja": "試験", "kind": "単語", "type": "vocab", "id": "V036"}, {"en": "non-native", "ja": "外来の", "kind": "単語", "type": "vocab", "id": "V037"}, {"en": "species", "ja": "種／生物の種類", "kind": "単語", "type": "vocab", "id": "V038"}, {"en": "create", "ja": "〜を作り出す／引き起こす", "kind": "単語", "type": "vocab", "id": "V039"}, {"en": "harmful", "ja": "有害な", "kind": "単語", "type": "vocab", "id": "V040"}, {"en": "activity", "ja": "活動", "kind": "単語", "type": "vocab", "id": "V041"}, {"en": "accident", "ja": "偶然の出来事", "kind": "単語", "type": "vocab", "id": "V042"}, {"en": "purpose", "ja": "目的", "kind": "単語", "type": "vocab", "id": "V043"}, {"en": "original", "ja": "本来の／元の", "kind": "単語", "type": "vocab", "id": "V044"}, {"en": "European", "ja": "ヨーロッパの", "kind": "単語", "type": "vocab", "id": "V045"}, {"en": "rabbit", "ja": "ウサギ", "kind": "単語", "type": "vocab", "id": "V046"}, {"en": "settler", "ja": "入植者", "kind": "単語", "type": "vocab", "id": "V047"}, {"en": "wild", "ja": "野生の", "kind": "単語", "type": "vocab", "id": "V048"}, {"en": "hunt", "ja": "狩る", "kind": "単語", "type": "vocab", "id": "V049"}, {"en": "survive", "ja": "生き残る", "kind": "単語", "type": "vocab", "id": "V050"}, {"en": "crop", "ja": "作物", "kind": "単語", "type": "vocab", "id": "V051"}, {"en": "million", "ja": "百万", "kind": "単語", "type": "vocab", "id": "V052"}, {"en": "island", "ja": "島", "kind": "単語", "type": "vocab", "id": "V053"}, {"en": "forest", "ja": "森／森林", "kind": "単語", "type": "vocab", "id": "V054"}, {"en": "disappear", "ja": "姿を消す", "kind": "単語", "type": "vocab", "id": "V055"}, {"en": "completely", "ja": "完全に", "kind": "単語", "type": "vocab", "id": "V056"}, {"en": "scientist", "ja": "科学者", "kind": "単語", "type": "vocab", "id": "V057"}, {"en": "government", "ja": "政府", "kind": "単語", "type": "vocab", "id": "V058"}, {"en": "reduce", "ja": "〜を減らす", "kind": "単語", "type": "vocab", "id": "V059"}, {"en": "environment", "ja": "環境", "kind": "単語", "type": "vocab", "id": "V060"}, {"en": "choice", "ja": "選択", "kind": "単語", "type": "vocab", "id": "V061"}, {"en": "future", "ja": "未来／将来", "kind": "単語", "type": "vocab", "id": "V062"}, {"en": "impact", "ja": "影響", "kind": "単語", "type": "vocab", "id": "V063"}, {"en": "miso soup", "ja": "みそ汁", "kind": "単語", "type": "vocab", "id": "V064"}, {"en": "rice ball", "ja": "おにぎり", "kind": "単語", "type": "vocab", "id": "V065"}, {"en": "tofu", "ja": "豆腐", "kind": "単語", "type": "vocab", "id": "V066"}, {"en": "salmon", "ja": "サーモン", "kind": "単語", "type": "vocab", "id": "V067"}, {"en": "bagel", "ja": "ベーグル", "kind": "単語", "type": "vocab", "id": "V068"}, {"en": "flight", "ja": "飛行機の便／フライト", "kind": "単語", "type": "vocab", "id": "V069"}, {"en": "nervous", "ja": "緊張した／不安な", "kind": "単語", "type": "vocab", "id": "V070"}, {"en": "excited", "ja": "わくわくしている", "kind": "単語", "type": "vocab", "id": "V071"}, {"en": "advice", "ja": "助言", "kind": "単語", "type": "vocab", "id": "V072"}, {"en": "useful", "ja": "役に立つ", "kind": "単語", "type": "vocab", "id": "V073"}, {"en": "smile", "ja": "笑顔／ほほえむ", "kind": "単語", "type": "vocab", "id": "V074"}, {"en": "favorite", "ja": "お気に入りの", "kind": "単語", "type": "vocab", "id": "V075"}, {"en": "sleepy", "ja": "眠い", "kind": "単語", "type": "vocab", "id": "V076"}, {"en": "flute", "ja": "フルート", "kind": "単語", "type": "vocab", "id": "V077"}, {"en": "tomato", "ja": "トマト", "kind": "単語", "type": "vocab", "id": "V078"}, {"en": "yummy", "ja": "おいしい", "kind": "単語", "type": "vocab", "id": "V079"}, {"en": "uncle", "ja": "おじ", "kind": "単語", "type": "vocab", "id": "V080"}, {"en": "aunt", "ja": "おば", "kind": "単語", "type": "vocab", "id": "V081"}, {"en": "adventure", "ja": "冒険", "kind": "単語", "type": "vocab", "id": "V082"}, {"en": "author", "ja": "作家", "kind": "単語", "type": "vocab", "id": "V083"}, {"en": "character", "ja": "登場人物／性格", "kind": "単語", "type": "vocab", "id": "V084"}, {"en": "novel", "ja": "小説", "kind": "単語", "type": "vocab", "id": "V085"}, {"en": "imagination", "ja": "想像力", "kind": "単語", "type": "vocab", "id": "V086"}, {"en": "not only A but also B", "ja": "AだけでなくBも", "kind": "熟語・表現", "type": "vocab", "id": "V087"}, {"en": "both A and B", "ja": "AもBも両方とも", "kind": "熟語・表現", "type": "vocab", "id": "V088"}, {"en": "work on", "ja": "〜に取り組む", "kind": "熟語・表現", "type": "vocab", "id": "V089"}, {"en": "look up", "ja": "〜を調べる", "kind": "熟語・表現", "type": "vocab", "id": "V090"}, {"en": "learn about", "ja": "〜について学ぶ", "kind": "熟語・表現", "type": "vocab", "id": "V091"}, {"en": "for example", "ja": "たとえば", "kind": "熟語・表現", "type": "vocab", "id": "V092"}, {"en": "such as", "ja": "〜のような", "kind": "熟語・表現", "type": "vocab", "id": "V093"}, {"en": "be interested in", "ja": "〜に興味がある", "kind": "熟語・表現", "type": "vocab", "id": "V094"}, {"en": "make a video", "ja": "動画を作る", "kind": "熟語・表現", "type": "vocab", "id": "V095"}, {"en": "present it to the class", "ja": "それをクラスで発表する", "kind": "熟語・表現", "type": "vocab", "id": "V096"}, {"en": "school rule", "ja": "校則", "kind": "熟語・表現", "type": "vocab", "id": "V097"}, {"en": "of course", "ja": "もちろん", "kind": "熟語・表現", "type": "vocab", "id": "V098"}, {"en": "in English", "ja": "英語で", "kind": "熟語・表現", "type": "vocab", "id": "V099"}, {"en": "at school", "ja": "学校で", "kind": "熟語・表現", "type": "vocab", "id": "V100"}, {"en": "What a nice day!", "ja": "なんてすてきな日でしょう", "kind": "熟語・表現", "type": "vocab", "id": "V101"}, {"en": "How beautiful!", "ja": "なんて美しいのでしょう", "kind": "熟語・表現", "type": "vocab", "id": "V102"}, {"en": "Shall I ...?", "ja": "私が〜しましょうか", "kind": "熟語・表現", "type": "vocab", "id": "V103"}, {"en": "Shall we ...?", "ja": "一緒に〜しましょうか", "kind": "熟語・表現", "type": "vocab", "id": "V104"}, {"en": "Will you ...?", "ja": "〜してくれますか", "kind": "熟語・表現", "type": "vocab", "id": "V105"}, {"en": "have to", "ja": "〜しなければならない", "kind": "熟語・表現", "type": "vocab", "id": "V106"}, {"en": "don't have to", "ja": "〜する必要はない", "kind": "熟語・表現", "type": "vocab", "id": "V107"}, {"en": "must not", "ja": "〜してはいけない", "kind": "熟語・表現", "type": "vocab", "id": "V108"}, {"en": "need to", "ja": "〜する必要がある", "kind": "熟語・表現", "type": "vocab", "id": "V109"}, {"en": "on time", "ja": "時間通りに", "kind": "熟語・表現", "type": "vocab", "id": "V110"}, {"en": "stop by", "ja": "〜に立ち寄る", "kind": "熟語・表現", "type": "vocab", "id": "V111"}, {"en": "in a hurry", "ja": "急いで", "kind": "熟語・表現", "type": "vocab", "id": "V112"}, {"en": "write out", "ja": "書き出す", "kind": "熟語・表現", "type": "vocab", "id": "V113"}, {"en": "go well", "ja": "うまくいく", "kind": "熟語・表現", "type": "vocab", "id": "V114"}, {"en": "non-native species", "ja": "外来種", "kind": "熟語・表現", "type": "vocab", "id": "V115"}, {"en": "because of", "ja": "〜のために", "kind": "熟語・表現", "type": "vocab", "id": "V116"}, {"en": "by accident", "ja": "偶然に", "kind": "熟語・表現", "type": "vocab", "id": "V117"}, {"en": "on purpose", "ja": "わざと／意図的に", "kind": "熟語・表現", "type": "vocab", "id": "V118"}, {"en": "take the place of", "ja": "〜に取って代わる", "kind": "熟語・表現", "type": "vocab", "id": "V119"}, {"en": "more than", "ja": "〜を超える", "kind": "熟語・表現", "type": "vocab", "id": "V120"}, {"en": "most of", "ja": "〜のほとんど", "kind": "熟語・表現", "type": "vocab", "id": "V121"}, {"en": "the number of", "ja": "〜の数", "kind": "熟語・表現", "type": "vocab", "id": "V122"}, {"en": "die out", "ja": "絶滅する", "kind": "熟語・表現", "type": "vocab", "id": "V123"}, {"en": "play an important role", "ja": "重要な役割を果たす", "kind": "熟語・表現", "type": "vocab", "id": "V124"}, {"en": "in some cases", "ja": "場合によっては", "kind": "熟語・表現", "type": "vocab", "id": "V125"}, {"en": "in danger", "ja": "危険にさらされて", "kind": "熟語・表現", "type": "vocab", "id": "V126"}, {"en": "natural environment", "ja": "自然環境", "kind": "熟語・表現", "type": "vocab", "id": "V127"}, {"en": "as carefully as we can", "ja": "できる限り慎重に", "kind": "熟語・表現", "type": "vocab", "id": "V128"}, {"en": "It smells good.", "ja": "いいにおいがします。", "kind": "熟語・表現", "type": "vocab", "id": "V129"}, {"en": "It sounds yummy.", "ja": "おいしそうです。", "kind": "熟語・表現", "type": "vocab", "id": "V130"}, {"en": "stay with", "ja": "〜の家に泊まる／滞在する", "kind": "熟語・表現", "type": "vocab", "id": "V131"}, {"en": "for breakfast", "ja": "朝食に", "kind": "熟語・表現", "type": "vocab", "id": "V132"}, {"en": "put A in B", "ja": "AをBに入れる", "kind": "熟語・表現", "type": "vocab", "id": "V133"}, {"en": "Here you are.", "ja": "はい、どうぞ。", "kind": "熟語・表現", "type": "vocab", "id": "V134"}, {"en": "Me, too.", "ja": "私もです。", "kind": "熟語・表現", "type": "vocab", "id": "V135"}, {"en": "buy A for B", "ja": "BのためにAを買う", "kind": "熟語・表現", "type": "vocab", "id": "V136"}, {"en": "thanks to", "ja": "〜のおかげで", "kind": "熟語・表現", "type": "vocab", "id": "V137"}, {"en": "make me happy", "ja": "私を幸せにする", "kind": "熟語・表現", "type": "vocab", "id": "V138"}, {"en": "give me advice", "ja": "私に助言をくれる", "kind": "熟語・表現", "type": "vocab", "id": "V139"}, {"en": "send me a message", "ja": "私にメッセージを送る", "kind": "熟語・表現", "type": "vocab", "id": "V140"}, {"en": "show me your notebook", "ja": "私にあなたのノートを見せる", "kind": "熟語・表現", "type": "vocab", "id": "V141"}, {"en": "tell me the truth", "ja": "私に本当のことを話す", "kind": "熟語・表現", "type": "vocab", "id": "V142"}, {"en": "teach me English", "ja": "私に英語を教える", "kind": "熟語・表現", "type": "vocab", "id": "V143"}, {"en": "ask me a question", "ja": "私に質問をする", "kind": "熟語・表現", "type": "vocab", "id": "V144"}, {"en": "buy me a ticket", "ja": "私にチケットを買ってくれる", "kind": "熟語・表現", "type": "vocab", "id": "V145"}, {"en": "make me lunch", "ja": "私に昼食を作ってくれる", "kind": "熟語・表現", "type": "vocab", "id": "V146"}, {"en": "keep the room clean", "ja": "部屋をきれいに保つ", "kind": "熟語・表現", "type": "vocab", "id": "V147"}, {"en": "leave the door open", "ja": "ドアを開けたままにする", "kind": "熟語・表現", "type": "vocab", "id": "V148"}, {"en": "call her Maki", "ja": "彼女をマキと呼ぶ", "kind": "熟語・表現", "type": "vocab", "id": "V149"}, {"en": "paint the wall blue", "ja": "壁を青く塗る", "kind": "熟語・表現", "type": "vocab", "id": "V150"}, {"en": "find English useful", "ja": "英語が役に立つとわかる", "kind": "熟語・表現", "type": "vocab", "id": "V151"}], "reorder": [{"type": "reorder", "ja": "私は外国の文化に興味があります。", "answer": "I am interested in foreign cultures.", "tokens": ["I", "am", "interested", "in", "foreign", "cultures."], "group": "接続詞・基本表現", "id": "R001"}, {"type": "reorder", "ja": "私たちは授業でそのトピックについて学びました。", "answer": "We learned about the topic in class.", "tokens": ["We", "learned", "about", "the", "topic", "in", "class."], "group": "接続詞・基本表現", "id": "R002"}, {"type": "reorder", "ja": "彼女はプロジェクトに一生懸命取り組みました。", "answer": "She worked hard on the project.", "tokens": ["She", "worked", "hard", "on", "the", "project."], "group": "接続詞・基本表現", "id": "R003"}, {"type": "reorder", "ja": "時間があれば、私を手伝ってください。", "answer": "If you have time, please help me.", "tokens": ["If", "you", "have", "time,", "please", "help", "me."], "group": "接続詞", "id": "R004"}, {"type": "reorder", "ja": "明日雨が降ったら、私たちは教室で練習します。", "answer": "If it rains tomorrow, we will practice in the classroom.", "tokens": ["If", "it", "rains", "tomorrow,", "we", "will", "practice", "in", "the", "classroom."], "group": "接続詞", "id": "R005"}, {"type": "reorder", "ja": "私は疲れていたので、早く寝ました。", "answer": "I went to bed early because I was tired.", "tokens": ["I", "went", "to", "bed", "early", "because", "I", "was", "tired."], "group": "接続詞", "id": "R006"}, {"type": "reorder", "ja": "彼は忙しかったけれども、私にメッセージを送りました。", "answer": "Although he was busy, he sent me a message.", "tokens": ["Although", "he", "was", "busy,", "he", "sent", "me", "a", "message."], "group": "接続詞", "id": "R007"}, {"type": "reorder", "ja": "その話は長かったけれども、とても面白かったです。", "answer": "Though the story was long, it was very interesting.", "tokens": ["Though", "the", "story", "was", "long,", "it", "was", "very", "interesting."], "group": "接続詞", "id": "R008"}, {"type": "reorder", "ja": "私はこのトピックは私たちにとって重要だと思います。", "answer": "I think that this topic is important for us.", "tokens": ["I", "think", "that", "this", "topic", "is", "important", "for", "us."], "group": "接続詞", "id": "R009"}, {"type": "reorder", "ja": "私は試験がうまくいくことを願っています。", "answer": "I hope that the examination will go well.", "tokens": ["I", "hope", "that", "the", "examination", "will", "go", "well."], "group": "接続詞", "id": "R010"}, {"type": "reorder", "ja": "出かける前に、宿題を終えなさい。", "answer": "Finish your homework before you go out.", "tokens": ["Finish", "your", "homework", "before", "you", "go", "out."], "group": "接続詞", "id": "R011"}, {"type": "reorder", "ja": "私が夕食を作っている間、音楽を聞いていました。", "answer": "I listened to music while I was cooking dinner.", "tokens": ["I", "listened", "to", "music", "while", "I", "was", "cooking", "dinner."], "group": "接続詞", "id": "R012"}, {"type": "reorder", "ja": "なんてすばらしい発表でしょう。", "answer": "What an excellent presentation!", "tokens": ["What", "an", "excellent", "presentation!"], "group": "感嘆文", "id": "R013"}, {"type": "reorder", "ja": "なんて面白いトピックでしょう。", "answer": "What an interesting topic!", "tokens": ["What", "an", "interesting", "topic!"], "group": "感嘆文", "id": "R014"}, {"type": "reorder", "ja": "この写真はなんて美しいのでしょう。", "answer": "How beautiful this picture is!", "tokens": ["How", "beautiful", "this", "picture", "is!"], "group": "感嘆文", "id": "R015"}, {"type": "reorder", "ja": "この考えはなんてわくわくするのでしょう。", "answer": "How exciting this idea is!", "tokens": ["How", "exciting", "this", "idea", "is!"], "group": "感嘆文", "id": "R016"}, {"type": "reorder", "ja": "窓を開けましょうか。", "answer": "Shall I open the window?", "tokens": ["Shall", "I", "open", "the", "window?"], "group": "助動詞表現", "id": "R017"}, {"type": "reorder", "ja": "あなたのかばんを運びましょうか。", "answer": "Shall I carry your bag?", "tokens": ["Shall", "I", "carry", "your", "bag?"], "group": "助動詞表現", "id": "R018"}, {"type": "reorder", "ja": "休憩しましょうか。", "answer": "Shall we take a break?", "tokens": ["Shall", "we", "take", "a", "break?"], "group": "助動詞表現", "id": "R019"}, {"type": "reorder", "ja": "一緒に始めましょうか。", "answer": "Shall we start together?", "tokens": ["Shall", "we", "start", "together?"], "group": "助動詞表現", "id": "R020"}, {"type": "reorder", "ja": "ここで待ってくれますか。", "answer": "Will you wait here?", "tokens": ["Will", "you", "wait", "here?"], "group": "助動詞表現", "id": "R021"}, {"type": "reorder", "ja": "あなたのノートを見せてくれますか。", "answer": "Will you show me your notebook?", "tokens": ["Will", "you", "show", "me", "your", "notebook?"], "group": "助動詞表現", "id": "R022"}, {"type": "reorder", "ja": "私は夕食前にレポートを終えなければなりません。", "answer": "I have to finish my report before dinner.", "tokens": ["I", "have", "to", "finish", "my", "report", "before", "dinner."], "group": "助動詞表現", "id": "R023"}, {"type": "reorder", "ja": "あなたは試験を心配する必要はありません。", "answer": "You do not have to worry about the test.", "tokens": ["You", "do", "not", "have", "to", "worry", "about", "the", "test."], "group": "助動詞表現", "id": "R024"}, {"type": "reorder", "ja": "私たちは自然環境について慎重に考えなければなりません。", "answer": "We have to think carefully about the natural environment.", "tokens": ["We", "have", "to", "think", "carefully", "about", "the", "natural", "environment."], "group": "助動詞表現", "id": "R025"}, {"type": "reorder", "ja": "このスープはいいにおいがします。", "answer": "This soup smells good.", "tokens": ["This", "soup", "smells", "good."], "group": "文のしくみ", "id": "R026"}, {"type": "reorder", "ja": "その考えはよさそうに聞こえます。", "answer": "That idea sounds nice.", "tokens": ["That", "idea", "sounds", "nice."], "group": "文のしくみ", "id": "R027"}, {"type": "reorder", "ja": "彼女は少し緊張しているように見えました。", "answer": "She looked a little nervous.", "tokens": ["She", "looked", "a", "little", "nervous."], "group": "文のしくみ", "id": "R028"}, {"type": "reorder", "ja": "そのニュースは私をうれしくしました。", "answer": "The news made me happy.", "tokens": ["The", "news", "made", "me", "happy."], "group": "文のしくみ", "id": "R029"}, {"type": "reorder", "ja": "部屋をきれいにしておきなさい。", "answer": "Keep the room clean.", "tokens": ["Keep", "the", "room", "clean."], "group": "文のしくみ", "id": "R030"}, {"type": "reorder", "ja": "ドアを開けたままにしないで。", "answer": "Do not leave the door open.", "tokens": ["Do", "not", "leave", "the", "door", "open."], "group": "文のしくみ", "id": "R031"}, {"type": "reorder", "ja": "私たちは彼をケンと呼びます。", "answer": "We call him Ken.", "tokens": ["We", "call", "him", "Ken."], "group": "文のしくみ", "id": "R032"}, {"type": "reorder", "ja": "私は英語が役に立つとわかりました。", "answer": "I found English useful.", "tokens": ["I", "found", "English", "useful."], "group": "文のしくみ", "id": "R033"}, {"type": "reorder", "ja": "彼女は私に助言をくれました。", "answer": "She gave me some advice.", "tokens": ["She", "gave", "me", "some", "advice."], "group": "文のしくみ", "id": "R034"}, {"type": "reorder", "ja": "彼は私にメッセージを送りました。", "answer": "He sent me a message.", "tokens": ["He", "sent", "me", "a", "message."], "group": "文のしくみ", "id": "R035"}, {"type": "reorder", "ja": "私の叔母は私に昼食を作ってくれました。", "answer": "My aunt made me lunch.", "tokens": ["My", "aunt", "made", "me", "lunch."], "group": "文のしくみ", "id": "R036"}, {"type": "reorder", "ja": "先生は私たちに新しい単語を教えました。", "answer": "The teacher taught us a new word.", "tokens": ["The", "teacher", "taught", "us", "a", "new", "word."], "group": "文のしくみ", "id": "R037"}, {"type": "reorder", "ja": "彼は私に真実を話しました。", "answer": "He told me the truth.", "tokens": ["He", "told", "me", "the", "truth."], "group": "文のしくみ", "id": "R038"}, {"type": "reorder", "ja": "私は友だちのためにチケットを買いました。", "answer": "I bought a ticket for my friend.", "tokens": ["I", "bought", "a", "ticket", "for", "my", "friend."], "group": "文のしくみ", "id": "R039"}, {"type": "reorder", "ja": "彼女は私にその写真を見せてくれました。", "answer": "She showed me the picture.", "tokens": ["She", "showed", "me", "the", "picture."], "group": "文のしくみ", "id": "R040"}, {"type": "reorder", "ja": "外来種は在来の動植物に害を与えることがあります。", "answer": "Non-native species can be harmful to native animals and plants.", "tokens": ["Non-native", "species", "can", "be", "harmful", "to", "native", "animals", "and", "plants."], "group": "本文重要文風", "id": "R041"}, {"type": "reorder", "ja": "人間の活動が環境に大きな影響を与えることがあります。", "answer": "Human activity can have a big impact on the environment.", "tokens": ["Human", "activity", "can", "have", "a", "big", "impact", "on", "the", "environment."], "group": "本文重要文風", "id": "R042"}, {"type": "reorder", "ja": "科学者たちは動物の数を減らそうとしました。", "answer": "Scientists tried to reduce the number of animals.", "tokens": ["Scientists", "tried", "to", "reduce", "the", "number", "of", "animals."], "group": "本文重要文風", "id": "R043"}, {"type": "reorder", "ja": "いくつかの動物は自然の中で重要な役割を果たします。", "answer": "Some animals play an important role in nature.", "tokens": ["Some", "animals", "play", "an", "important", "role", "in", "nature."], "group": "本文重要文風", "id": "R044"}, {"type": "reorder", "ja": "私たちはできる限り慎重に選択しなければなりません。", "answer": "We have to make choices as carefully as we can.", "tokens": ["We", "have", "to", "make", "choices", "as", "carefully", "as", "we", "can."], "group": "本文重要文風", "id": "R045"}, {"type": "reorder", "ja": "彼女は朝食におにぎりを食べました。", "answer": "She had a rice ball for breakfast.", "tokens": ["She", "had", "a", "rice", "ball", "for", "breakfast."], "group": "Scene", "id": "R046"}, {"type": "reorder", "ja": "このベーグルはサーモンとクリームチーズが入っています。", "answer": "This bagel has salmon and cream cheese in it.", "tokens": ["This", "bagel", "has", "salmon", "and", "cream", "cheese", "in", "it."], "group": "Scene", "id": "R047"}, {"type": "reorder", "ja": "私は飛行機の中で少し緊張しました。", "answer": "I was a little nervous on the plane.", "tokens": ["I", "was", "a", "little", "nervous", "on", "the", "plane."], "group": "Scene", "id": "R048"}, {"type": "reorder", "ja": "彼の笑顔は私を幸せにしました。", "answer": "His smile made me happy.", "tokens": ["His", "smile", "made", "me", "happy."], "group": "Scene", "id": "R049"}, {"type": "reorder", "ja": "この辞書は私にとってとても役に立ちます。", "answer": "This dictionary is very useful for me.", "tokens": ["This", "dictionary", "is", "very", "useful", "for", "me."], "group": "Scene", "id": "R050"}], "cloze": [{"type": "cloze", "ja": "もし時間があれば、電話してください。", "sentence": "___ you have time, please call me.", "answer": "If", "options": ["If", "Because", "Although", "That"], "group": "接続詞", "id": "C001"}, {"type": "cloze", "ja": "雨だったので、私たちは家にいました。", "sentence": "We stayed home ___ it was rainy.", "answer": "because", "options": ["because", "if", "although", "that"], "group": "接続詞", "id": "C002"}, {"type": "cloze", "ja": "寒かったけれども、彼女は外へ行きました。", "sentence": "___ it was cold, she went outside.", "answer": "Although", "options": ["Although", "Because", "If", "When"], "group": "接続詞", "id": "C003"}, {"type": "cloze", "ja": "私は彼が親切だと思います。", "sentence": "I think ___ he is kind.", "answer": "that", "options": ["that", "if", "because", "although"], "group": "接続詞", "id": "C004"}, {"type": "cloze", "ja": "窓を開けましょうか。", "sentence": "___ I open the window?", "answer": "Shall", "options": ["Shall", "Will", "Have", "Does"], "group": "助動詞表現", "id": "C005"}, {"type": "cloze", "ja": "一緒に始めましょうか。", "sentence": "___ we start together?", "answer": "Shall", "options": ["Shall", "Will", "Do", "Are"], "group": "助動詞表現", "id": "C006"}, {"type": "cloze", "ja": "ここで待ってくれますか。", "sentence": "___ you wait here?", "answer": "Will", "options": ["Will", "Shall", "Have", "Did"], "group": "助動詞表現", "id": "C007"}, {"type": "cloze", "ja": "私は今行かなければなりません。", "sentence": "I ___ to go now.", "answer": "have", "options": ["have", "must not", "don't", "shall"], "group": "助動詞表現", "id": "C008"}, {"type": "cloze", "ja": "あなたは急ぐ必要はありません。", "sentence": "You do not ___ to hurry.", "answer": "have", "options": ["have", "must", "shall", "will"], "group": "助動詞表現", "id": "C009"}, {"type": "cloze", "ja": "なんてよい考えでしょう。", "sentence": "___ a good idea!", "answer": "What", "options": ["What", "How", "When", "If"], "group": "感嘆文", "id": "C010"}, {"type": "cloze", "ja": "なんて美しいのでしょう。", "sentence": "___ beautiful!", "answer": "How", "options": ["How", "What", "Because", "That"], "group": "感嘆文", "id": "C011"}, {"type": "cloze", "ja": "このスープはおいしいにおいがします。", "sentence": "This soup ___ good.", "answer": "smells", "options": ["smells", "sounds", "looks", "keeps"], "group": "文のしくみ", "id": "C012"}, {"type": "cloze", "ja": "それはよさそうですね。", "sentence": "That ___ nice.", "answer": "sounds", "options": ["sounds", "smells", "keeps", "gives"], "group": "文のしくみ", "id": "C013"}, {"type": "cloze", "ja": "その知らせは私をうれしくしました。", "sentence": "The news ___ me happy.", "answer": "made", "options": ["made", "gave", "sent", "told"], "group": "文のしくみ", "id": "C014"}, {"type": "cloze", "ja": "部屋をきれいにしておきなさい。", "sentence": "___ the room clean.", "answer": "Keep", "options": ["Keep", "Call", "Give", "Send"], "group": "文のしくみ", "id": "C015"}, {"type": "cloze", "ja": "ドアを開けたままにしないで。", "sentence": "Do not ___ the door open.", "answer": "leave", "options": ["leave", "call", "show", "teach"], "group": "文のしくみ", "id": "C016"}, {"type": "cloze", "ja": "彼女は私に助言をくれました。", "sentence": "She ___ me some advice.", "answer": "gave", "options": ["gave", "made", "called", "kept"], "group": "文のしくみ", "id": "C017"}, {"type": "cloze", "ja": "彼は私にメッセージを送りました。", "sentence": "He ___ me a message.", "answer": "sent", "options": ["sent", "bought", "found", "painted"], "group": "文のしくみ", "id": "C018"}, {"type": "cloze", "ja": "私たちは彼をケンと呼びます。", "sentence": "We ___ him Ken.", "answer": "call", "options": ["call", "give", "send", "show"], "group": "文のしくみ", "id": "C019"}, {"type": "cloze", "ja": "私は英語が役に立つとわかりました。", "sentence": "I found English ___.", "answer": "useful", "options": ["useful", "alone", "wild", "foreign"], "group": "文のしくみ", "id": "C020"}, {"type": "cloze", "ja": "外来種は問題を引き起こすことがあります。", "sentence": "Non-native species can ___ problems.", "answer": "create", "options": ["create", "survive", "disappear", "agree"], "group": "本文重要語句", "id": "C021"}, {"type": "cloze", "ja": "いくつかの動物は重要な役割を果たします。", "sentence": "Some animals ___ an important role.", "answer": "play", "options": ["play", "make", "give", "take"], "group": "本文重要語句", "id": "C022"}, {"type": "cloze", "ja": "科学者たちはその数を減らそうとしました。", "sentence": "Scientists tried to ___ the number.", "answer": "reduce", "options": ["reduce", "introduce", "survive", "present"], "group": "本文重要語句", "id": "C023"}, {"type": "cloze", "ja": "その動物は完全に姿を消しました。", "sentence": "The animal disappeared ___.", "answer": "completely", "options": ["completely", "carefully", "probably", "usually"], "group": "本文重要語句", "id": "C024"}]};
-let mode = "all";
+const QUESTIONS = [{"theme": "超基礎英語", "level": "★やさしい", "ja": "私は毎朝水を飲みます。", "answer": "I drink water every morning.", "tokens": ["I", "drink", "water", "every", "morning."]}, {"theme": "超基礎英語", "level": "★やさしい", "ja": "私は夜に英語を勉強します。", "answer": "I study English at night.", "tokens": ["I", "study", "English", "at", "night."]}, {"theme": "超基礎英語", "level": "★やさしい", "ja": "彼女はとても親切です。", "answer": "She is very kind.", "tokens": ["She", "is", "very", "kind."]}, {"theme": "超基礎英語", "level": "★やさしい", "ja": "彼は今忙しいです。", "answer": "He is busy now.", "tokens": ["He", "is", "busy", "now."]}, {"theme": "超基礎英語", "level": "★やさしい", "ja": "私はこの本が好きです。", "answer": "I like this book.", "tokens": ["I", "like", "this", "book."]}, {"theme": "超基礎英語", "level": "★やさしい", "ja": "私たちは日曜日に音楽を聞きます。", "answer": "We listen to music on Sundays.", "tokens": ["We", "listen", "to", "music", "on", "Sundays."]}, {"theme": "超基礎英語", "level": "★やさしい", "ja": "私の母は夕食を作ります。", "answer": "My mother cooks dinner.", "tokens": ["My", "mother", "cooks", "dinner."]}, {"theme": "超基礎英語", "level": "★やさしい", "ja": "彼らは学校でサッカーをします。", "answer": "They play soccer at school.", "tokens": ["They", "play", "soccer", "at", "school."]}, {"theme": "超基礎英語", "level": "★やさしい", "ja": "私はこのバッグが必要です。", "answer": "I need this bag.", "tokens": ["I", "need", "this", "bag."]}, {"theme": "超基礎英語", "level": "★やさしい", "ja": "この部屋はとてもきれいです。", "answer": "This room is very clean.", "tokens": ["This", "room", "is", "very", "clean."]}, {"theme": "超基礎英語", "level": "★やさしい", "ja": "彼女は沖縄に住んでいます。", "answer": "She lives in Okinawa.", "tokens": ["She", "lives", "in", "Okinawa."]}, {"theme": "超基礎英語", "level": "★やさしい", "ja": "私は朝7時に起きます。", "answer": "I get up at seven.", "tokens": ["I", "get", "up", "at", "seven."]}, {"theme": "超基礎英語", "level": "★やさしい", "ja": "彼は電車で学校へ行きます。", "answer": "He goes to school by train.", "tokens": ["He", "goes", "to", "school", "by", "train."]}, {"theme": "超基礎英語", "level": "★やさしい", "ja": "私たちは夕食後にテレビを見ます。", "answer": "We watch TV after dinner.", "tokens": ["We", "watch", "TV", "after", "dinner."]}, {"theme": "超基礎英語", "level": "★やさしい", "ja": "私の兄は英語を話します。", "answer": "My brother speaks English.", "tokens": ["My", "brother", "speaks", "English."]}, {"theme": "超基礎英語", "level": "★やさしい", "ja": "私は家で朝食を食べます。", "answer": "I eat breakfast at home.", "tokens": ["I", "eat", "breakfast", "at", "home."]}, {"theme": "超基礎英語", "level": "★やさしい", "ja": "この映画は面白いです。", "answer": "This movie is interesting.", "tokens": ["This", "movie", "is", "interesting."]}, {"theme": "超基礎英語", "level": "★やさしい", "ja": "私は午後に宿題をします。", "answer": "I do my homework in the afternoon.", "tokens": ["I", "do", "my", "homework", "in", "the", "afternoon."]}, {"theme": "超基礎英語", "level": "★やさしい", "ja": "彼女はピアノを練習します。", "answer": "She practices the piano.", "tokens": ["She", "practices", "the", "piano."]}, {"theme": "超基礎英語", "level": "★やさしい", "ja": "私は毎日歩きます。", "answer": "I walk every day.", "tokens": ["I", "walk", "every", "day."]}, {"theme": "超基礎英語", "level": "★★ふつう", "ja": "私は日曜日の朝に部屋を掃除します。", "answer": "I clean my room on Sunday morning.", "tokens": ["I", "clean", "my", "room", "on", "Sunday", "morning."]}, {"theme": "超基礎英語", "level": "★★ふつう", "ja": "彼女は放課後に図書館で本を読みます。", "answer": "She reads books in the library after school.", "tokens": ["She", "reads", "books", "in", "the", "library", "after", "school."]}, {"theme": "超基礎英語", "level": "★★ふつう", "ja": "私たちは週末に公園でテニスをします。", "answer": "We play tennis in the park on weekends.", "tokens": ["We", "play", "tennis", "in", "the", "park", "on", "weekends."]}, {"theme": "超基礎英語", "level": "★★ふつう", "ja": "彼は毎朝バスで駅へ行きます。", "answer": "He goes to the station by bus every morning.", "tokens": ["He", "goes", "to", "the", "station", "by", "bus", "every", "morning."]}, {"theme": "超基礎英語", "level": "★★ふつう", "ja": "私は夕食後に英語の音声を聞きます。", "answer": "I listen to English after dinner.", "tokens": ["I", "listen", "to", "English", "after", "dinner."]}, {"theme": "超基礎英語", "level": "★★ふつう", "ja": "私の父は夜にコーヒーを飲みません。", "answer": "My father does not drink coffee at night.", "tokens": ["My", "father", "does", "not", "drink", "coffee", "at", "night."]}, {"theme": "超基礎英語", "level": "★★ふつう", "ja": "彼らはこの町をよく知っています。", "answer": "They know this town very well.", "tokens": ["They", "know", "this", "town", "very", "well."]}, {"theme": "超基礎英語", "level": "★★ふつう", "ja": "私は新しいノートを今日買います。", "answer": "I buy a new notebook today.", "tokens": ["I", "buy", "a", "new", "notebook", "today."]}, {"theme": "超基礎英語", "level": "★★ふつう", "ja": "彼女は週に3回ギターを練習します。", "answer": "She practices the guitar three times a week.", "tokens": ["She", "practices", "the", "guitar", "three", "times", "a", "week."]}, {"theme": "超基礎英語", "level": "★★ふつう", "ja": "私たちは昼休みに友だちと話します。", "answer": "We talk with friends during lunch break.", "tokens": ["We", "talk", "with", "friends", "during", "lunch", "break."]}, {"theme": "超基礎英語", "level": "★★ふつう", "ja": "このレストランは駅の近くにあります。", "answer": "This restaurant is near the station.", "tokens": ["This", "restaurant", "is", "near", "the", "station."]}, {"theme": "超基礎英語", "level": "★★ふつう", "ja": "彼のスマホは机の上にあります。", "answer": "His phone is on the desk.", "tokens": ["His", "phone", "is", "on", "the", "desk."]}, {"theme": "超基礎英語", "level": "★★ふつう", "ja": "私はこの言葉をよく使います。", "answer": "I often use this word.", "tokens": ["I", "often", "use", "this", "word."]}, {"theme": "超基礎英語", "level": "★★ふつう", "ja": "彼女は夕方に犬を散歩させます。", "answer": "She walks her dog in the evening.", "tokens": ["She", "walks", "her", "dog", "in", "the", "evening."]}, {"theme": "超基礎英語", "level": "★★ふつう", "ja": "私たちは土曜日に英語のレッスンがあります。", "answer": "We have an English lesson on Saturday.", "tokens": ["We", "have", "an", "English", "lesson", "on", "Saturday."]}, {"theme": "超基礎英語", "level": "★★ふつう", "ja": "彼は毎晩早く寝ます。", "answer": "He goes to bed early every night.", "tokens": ["He", "goes", "to", "bed", "early", "every", "night."]}, {"theme": "超基礎英語", "level": "★★ふつう", "ja": "私は朝に温かいお茶を飲みます。", "answer": "I drink hot tea in the morning.", "tokens": ["I", "drink", "hot", "tea", "in", "the", "morning."]}, {"theme": "超基礎英語", "level": "★★ふつう", "ja": "この問題は私には少し難しいです。", "answer": "This question is a little difficult for me.", "tokens": ["This", "question", "is", "a", "little", "difficult", "for", "me."]}, {"theme": "超基礎英語", "level": "★★ふつう", "ja": "私たちは家で日本語を話します。", "answer": "We speak Japanese at home.", "tokens": ["We", "speak", "Japanese", "at", "home."]}, {"theme": "超基礎英語", "level": "★★ふつう", "ja": "彼女はいつも時間通りに来ます。", "answer": "She always comes on time.", "tokens": ["She", "always", "comes", "on", "time."]}, {"theme": "超基礎英語", "level": "★★★むずかしい", "ja": "私は仕事の前に毎朝英語を10分勉強します。", "answer": "I study English for ten minutes before work every morning.", "tokens": ["I", "study", "English", "for", "ten", "minutes", "before", "work", "every", "morning."]}, {"theme": "超基礎英語", "level": "★★★むずかしい", "ja": "彼女は週末に家族とよく映画を見ます。", "answer": "She often watches movies with her family on weekends.", "tokens": ["She", "often", "watches", "movies", "with", "her", "family", "on", "weekends."]}, {"theme": "超基礎英語", "level": "★★★むずかしい", "ja": "私たちは放課後に教室で新しい歌を練習します。", "answer": "We practice a new song in the classroom after school.", "tokens": ["We", "practice", "a", "new", "song", "in", "the", "classroom", "after", "school."]}, {"theme": "超基礎英語", "level": "★★★むずかしい", "ja": "彼は朝食の後に自転車で駅へ行きます。", "answer": "He goes to the station by bike after breakfast.", "tokens": ["He", "goes", "to", "the", "station", "by", "bike", "after", "breakfast."]}, {"theme": "超基礎英語", "level": "★★★むずかしい", "ja": "私は寝る前にスマホを見ません。", "answer": "I do not look at my phone before bed.", "tokens": ["I", "do", "not", "look", "at", "my", "phone", "before", "bed."]}, {"theme": "超基礎英語", "level": "★★★むずかしい", "ja": "この町には海の近くに小さな公園があります。", "answer": "There is a small park near the sea in this town.", "tokens": ["There", "is", "a", "small", "park", "near", "the", "sea", "in", "this", "town."]}, {"theme": "超基礎英語", "level": "★★★むずかしい", "ja": "私の姉は沖縄で英語の先生として働いています。", "answer": "My sister works as an English teacher in Okinawa.", "tokens": ["My", "sister", "works", "as", "an", "English", "teacher", "in", "Okinawa."]}, {"theme": "超基礎英語", "level": "★★★むずかしい", "ja": "私は毎週金曜日に友だちと英語を練習します。", "answer": "I practice English with my friend every Friday.", "tokens": ["I", "practice", "English", "with", "my", "friend", "every", "Friday."]}, {"theme": "超基礎英語", "level": "★★★むずかしい", "ja": "彼らは夕食の後で台所を掃除します。", "answer": "They clean the kitchen after dinner.", "tokens": ["They", "clean", "the", "kitchen", "after", "dinner."]}, {"theme": "超基礎英語", "level": "★★★むずかしい", "ja": "このバッグは私には少し重すぎます。", "answer": "This bag is a little too heavy for me.", "tokens": ["This", "bag", "is", "a", "little", "too", "heavy", "for", "me."]}, {"theme": "超基礎英語", "level": "★★★むずかしい", "ja": "彼女は朝の散歩の間に音楽を聞きます。", "answer": "She listens to music during her morning walk.", "tokens": ["She", "listens", "to", "music", "during", "her", "morning", "walk."]}, {"theme": "超基礎英語", "level": "★★★むずかしい", "ja": "私は新しい単語をノートに書きます。", "answer": "I write new words in my notebook.", "tokens": ["I", "write", "new", "words", "in", "my", "notebook."]}, {"theme": "超基礎英語", "level": "★★★むずかしい", "ja": "私たちは雨の日には家でゲームをします。", "answer": "We play games at home on rainy days.", "tokens": ["We", "play", "games", "at", "home", "on", "rainy", "days."]}, {"theme": "超基礎英語", "level": "★★★むずかしい", "ja": "彼は仕事の後にジムへ行きます。", "answer": "He goes to the gym after work.", "tokens": ["He", "goes", "to", "the", "gym", "after", "work."]}, {"theme": "超基礎英語", "level": "★★★むずかしい", "ja": "私の母は毎朝庭で花に水をやります。", "answer": "My mother waters flowers in the garden every morning.", "tokens": ["My", "mother", "waters", "flowers", "in", "the", "garden", "every", "morning."]}, {"theme": "超基礎英語", "level": "★★★むずかしい", "ja": "私は友だちに短いメッセージを送ります。", "answer": "I send a short message to my friend.", "tokens": ["I", "send", "a", "short", "message", "to", "my", "friend."]}, {"theme": "超基礎英語", "level": "★★★むずかしい", "ja": "彼女はいつも私に親切な言葉をくれます。", "answer": "She always gives me kind words.", "tokens": ["She", "always", "gives", "me", "kind", "words."]}, {"theme": "超基礎英語", "level": "★★★むずかしい", "ja": "私たちは英語を楽しく学びたいです。", "answer": "We want to learn English with fun.", "tokens": ["We", "want", "to", "learn", "English", "with", "fun."]}, {"theme": "超基礎英語", "level": "★★★むずかしい", "ja": "この写真は私をとても幸せにします。", "answer": "This picture makes me very happy.", "tokens": ["This", "picture", "makes", "me", "very", "happy."]}, {"theme": "超基礎英語", "level": "★★★むずかしい", "ja": "私は忙しい日にも少し英語を読みます。", "answer": "I read a little English even on busy days.", "tokens": ["I", "read", "a", "little", "English", "even", "on", "busy", "days."]}, {"theme": "カフェ英語", "level": "★やさしい", "ja": "私はコーヒーをください。", "answer": "I want coffee, please.", "tokens": ["I", "want", "coffee,", "please."]}, {"theme": "カフェ英語", "level": "★やさしい", "ja": "私はアイスティーが好きです。", "answer": "I like iced tea.", "tokens": ["I", "like", "iced", "tea."]}, {"theme": "カフェ英語", "level": "★やさしい", "ja": "これは私の注文です。", "answer": "This is my order.", "tokens": ["This", "is", "my", "order."]}, {"theme": "カフェ英語", "level": "★やさしい", "ja": "私はここで食べます。", "answer": "I eat here.", "tokens": ["I", "eat", "here."]}, {"theme": "カフェ英語", "level": "★やさしい", "ja": "私は持ち帰ります。", "answer": "I take it out.", "tokens": ["I", "take", "it", "out."]}, {"theme": "カフェ英語", "level": "★やさしい", "ja": "このケーキはおいしいです。", "answer": "This cake is delicious.", "tokens": ["This", "cake", "is", "delicious."]}, {"theme": "カフェ英語", "level": "★やさしい", "ja": "私は小さいコーヒーがほしいです。", "answer": "I want a small coffee.", "tokens": ["I", "want", "a", "small", "coffee."]}, {"theme": "カフェ英語", "level": "★やさしい", "ja": "彼女は水を飲みます。", "answer": "She drinks water.", "tokens": ["She", "drinks", "water."]}, {"theme": "カフェ英語", "level": "★やさしい", "ja": "私たちはカフェで話します。", "answer": "We talk at the cafe.", "tokens": ["We", "talk", "at", "the", "cafe."]}, {"theme": "カフェ英語", "level": "★やさしい", "ja": "私はこの席が好きです。", "answer": "I like this seat.", "tokens": ["I", "like", "this", "seat."]}, {"theme": "カフェ英語", "level": "★やさしい", "ja": "これは温かいです。", "answer": "This is hot.", "tokens": ["This", "is", "hot."]}, {"theme": "カフェ英語", "level": "★やさしい", "ja": "これは冷たいです。", "answer": "This is cold.", "tokens": ["This", "is", "cold."]}, {"theme": "カフェ英語", "level": "★やさしい", "ja": "私は砂糖が必要です。", "answer": "I need sugar.", "tokens": ["I", "need", "sugar."]}, {"theme": "カフェ英語", "level": "★やさしい", "ja": "私はミルクが必要です。", "answer": "I need milk.", "tokens": ["I", "need", "milk."]}, {"theme": "カフェ英語", "level": "★やさしい", "ja": "彼はサンドイッチを食べます。", "answer": "He eats a sandwich.", "tokens": ["He", "eats", "a", "sandwich."]}, {"theme": "カフェ英語", "level": "★やさしい", "ja": "私はクッキーを二つください。", "answer": "I want two cookies, please.", "tokens": ["I", "want", "two", "cookies,", "please."]}, {"theme": "カフェ英語", "level": "★やさしい", "ja": "この店は静かです。", "answer": "This shop is quiet.", "tokens": ["This", "shop", "is", "quiet."]}, {"theme": "カフェ英語", "level": "★やさしい", "ja": "私はここで勉強します。", "answer": "I study here.", "tokens": ["I", "study", "here."]}, {"theme": "カフェ英語", "level": "★やさしい", "ja": "私の友だちは紅茶を飲みます。", "answer": "My friend drinks tea.", "tokens": ["My", "friend", "drinks", "tea."]}, {"theme": "カフェ英語", "level": "★やさしい", "ja": "私は朝にカフェへ行きます。", "answer": "I go to a cafe in the morning.", "tokens": ["I", "go", "to", "a", "cafe", "in", "the", "morning."]}, {"theme": "カフェ英語", "level": "★★ふつう", "ja": "私は朝に小さいラテを注文します。", "answer": "I order a small latte in the morning.", "tokens": ["I", "order", "a", "small", "latte", "in", "the", "morning."]}, {"theme": "カフェ英語", "level": "★★ふつう", "ja": "彼女は昼休みにカフェでサンドイッチを食べます。", "answer": "She eats a sandwich at a cafe during lunch break.", "tokens": ["She", "eats", "a", "sandwich", "at", "a", "cafe", "during", "lunch", "break."]}, {"theme": "カフェ英語", "level": "★★ふつう", "ja": "私たちは窓の近くの席がほしいです。", "answer": "We want a seat near the window.", "tokens": ["We", "want", "a", "seat", "near", "the", "window."]}, {"theme": "カフェ英語", "level": "★★ふつう", "ja": "このコーヒーは私には少し苦いです。", "answer": "This coffee is a little bitter for me.", "tokens": ["This", "coffee", "is", "a", "little", "bitter", "for", "me."]}, {"theme": "カフェ英語", "level": "★★ふつう", "ja": "私はミルクなしで紅茶を飲みます。", "answer": "I drink tea without milk.", "tokens": ["I", "drink", "tea", "without", "milk."]}, {"theme": "カフェ英語", "level": "★★ふつう", "ja": "彼は仕事の前にコーヒーを買います。", "answer": "He buys coffee before work.", "tokens": ["He", "buys", "coffee", "before", "work."]}, {"theme": "カフェ英語", "level": "★★ふつう", "ja": "私は友だちのためにケーキを一つ買います。", "answer": "I buy a cake for my friend.", "tokens": ["I", "buy", "a", "cake", "for", "my", "friend."]}, {"theme": "カフェ英語", "level": "★★ふつう", "ja": "私たちはこのカフェでよく英語を話します。", "answer": "We often speak English at this cafe.", "tokens": ["We", "often", "speak", "English", "at", "this", "cafe."]}, {"theme": "カフェ英語", "level": "★★ふつう", "ja": "私はレジで注文します。", "answer": "I order at the counter.", "tokens": ["I", "order", "at", "the", "counter."]}, {"theme": "カフェ英語", "level": "★★ふつう", "ja": "彼女は静かな席で本を読みます。", "answer": "She reads a book at a quiet seat.", "tokens": ["She", "reads", "a", "book", "at", "a", "quiet", "seat."]}, {"theme": "カフェ英語", "level": "★★ふつう", "ja": "私は水を一杯くださいと言います。", "answer": "I say, water, please.", "tokens": ["I", "say,", "water,", "please."]}, {"theme": "カフェ英語", "level": "★★ふつう", "ja": "このチーズケーキはとても人気があります。", "answer": "This cheesecake is very popular.", "tokens": ["This", "cheesecake", "is", "very", "popular."]}, {"theme": "カフェ英語", "level": "★★ふつう", "ja": "私は午後に温かいコーヒーを飲みます。", "answer": "I drink hot coffee in the afternoon.", "tokens": ["I", "drink", "hot", "coffee", "in", "the", "afternoon."]}, {"theme": "カフェ英語", "level": "★★ふつう", "ja": "彼らはカフェで新しいメニューを見ます。", "answer": "They look at the new menu at the cafe.", "tokens": ["They", "look", "at", "the", "new", "menu", "at", "the", "cafe."]}, {"theme": "カフェ英語", "level": "★★ふつう", "ja": "私は大きいサイズを選びます。", "answer": "I choose the large size.", "tokens": ["I", "choose", "the", "large", "size."]}, {"theme": "カフェ英語", "level": "★★ふつう", "ja": "このテーブルは私たちには十分です。", "answer": "This table is enough for us.", "tokens": ["This", "table", "is", "enough", "for", "us."]}, {"theme": "カフェ英語", "level": "★★ふつう", "ja": "私はここで30分待ちます。", "answer": "I wait here for thirty minutes.", "tokens": ["I", "wait", "here", "for", "thirty", "minutes."]}, {"theme": "カフェ英語", "level": "★★ふつう", "ja": "彼はコーヒーをゆっくり飲みます。", "answer": "He drinks coffee slowly.", "tokens": ["He", "drinks", "coffee", "slowly."]}, {"theme": "カフェ英語", "level": "★★ふつう", "ja": "私たちはケーキを二人で分けます。", "answer": "We share a cake together.", "tokens": ["We", "share", "a", "cake", "together."]}, {"theme": "カフェ英語", "level": "★★ふつう", "ja": "私はこの飲み物をもう一度注文します。", "answer": "I order this drink again.", "tokens": ["I", "order", "this", "drink", "again."]}, {"theme": "カフェ英語", "level": "★★★むずかしい", "ja": "私は仕事の前にこのカフェで温かいコーヒーを飲みます。", "answer": "I drink hot coffee at this cafe before work.", "tokens": ["I", "drink", "hot", "coffee", "at", "this", "cafe", "before", "work."]}, {"theme": "カフェ英語", "level": "★★★むずかしい", "ja": "彼女は友だちを待ちながら窓の近くで本を読みます。", "answer": "She reads a book near the window while she waits for her friend.", "tokens": ["She", "reads", "a", "book", "near", "the", "window", "while", "she", "waits", "for", "her", "friend."]}, {"theme": "カフェ英語", "level": "★★★むずかしい", "ja": "私たちは昼休みに小さいテーブルでサンドイッチを食べます。", "answer": "We eat sandwiches at a small table during lunch break.", "tokens": ["We", "eat", "sandwiches", "at", "a", "small", "table", "during", "lunch", "break."]}, {"theme": "カフェ英語", "level": "★★★むずかしい", "ja": "私は砂糖を入れずにアイスコーヒーを飲みます。", "answer": "I drink iced coffee without sugar.", "tokens": ["I", "drink", "iced", "coffee", "without", "sugar."]}, {"theme": "カフェ英語", "level": "★★★むずかしい", "ja": "このカフェは駅の近くにあるので便利です。", "answer": "This cafe is convenient because it is near the station.", "tokens": ["This", "cafe", "is", "convenient", "because", "it", "is", "near", "the", "station."]}, {"theme": "カフェ英語", "level": "★★★むずかしい", "ja": "私は友だちにおすすめのケーキを見せます。", "answer": "I show my friend the recommended cake.", "tokens": ["I", "show", "my", "friend", "the", "recommended", "cake."]}, {"theme": "カフェ英語", "level": "★★★むずかしい", "ja": "店員さんは私に新しいメニューをくれます。", "answer": "The staff gives me the new menu.", "tokens": ["The", "staff", "gives", "me", "the", "new", "menu."]}, {"theme": "カフェ英語", "level": "★★★むずかしい", "ja": "私は少し時間がある時ここで英語を勉強します。", "answer": "I study English here when I have a little time.", "tokens": ["I", "study", "English", "here", "when", "I", "have", "a", "little", "time."]}, {"theme": "カフェ英語", "level": "★★★むずかしい", "ja": "彼は午後のレッスンの前にラテを買います。", "answer": "He buys a latte before his afternoon lesson.", "tokens": ["He", "buys", "a", "latte", "before", "his", "afternoon", "lesson."]}, {"theme": "カフェ英語", "level": "★★★むずかしい", "ja": "私たちは混んでいる時は持ち帰ります。", "answer": "We take it out when the cafe is crowded.", "tokens": ["We", "take", "it", "out", "when", "the", "cafe", "is", "crowded."]}, {"theme": "カフェ英語", "level": "★★★むずかしい", "ja": "この飲み物は甘すぎるけれどおいしいです。", "answer": "This drink is too sweet, but it is delicious.", "tokens": ["This", "drink", "is", "too", "sweet,", "but", "it", "is", "delicious."]}, {"theme": "カフェ英語", "level": "★★★むずかしい", "ja": "私はカフェで静かな時間を楽しみます。", "answer": "I enjoy quiet time at the cafe.", "tokens": ["I", "enjoy", "quiet", "time", "at", "the", "cafe."]}, {"theme": "カフェ英語", "level": "★★★むずかしい", "ja": "彼女は私のために小さいクッキーを買ってくれます。", "answer": "She buys a small cookie for me.", "tokens": ["She", "buys", "a", "small", "cookie", "for", "me."]}, {"theme": "カフェ英語", "level": "★★★むずかしい", "ja": "私は次に来る時このケーキを試します。", "answer": "I will try this cake next time.", "tokens": ["I", "will", "try", "this", "cake", "next", "time."]}, {"theme": "カフェ英語", "level": "★★★むずかしい", "ja": "私たちは注文の後で窓の近くに座ります。", "answer": "We sit near the window after we order.", "tokens": ["We", "sit", "near", "the", "window", "after", "we", "order."]}, {"theme": "カフェ英語", "level": "★★★むずかしい", "ja": "この席は外が見えるので好きです。", "answer": "I like this seat because I can see outside.", "tokens": ["I", "like", "this", "seat", "because", "I", "can", "see", "outside."]}, {"theme": "カフェ英語", "level": "★★★むずかしい", "ja": "私は温かい飲み物を飲むと落ち着きます。", "answer": "I feel calm when I drink a hot drink.", "tokens": ["I", "feel", "calm", "when", "I", "drink", "a", "hot", "drink."]}, {"theme": "カフェ英語", "level": "★★★むずかしい", "ja": "彼女はこのカフェを私に教えてくれました。", "answer": "She told me about this cafe.", "tokens": ["She", "told", "me", "about", "this", "cafe."]}, {"theme": "カフェ英語", "level": "★★★むずかしい", "ja": "私はレッスンの後で生徒とここで話します。", "answer": "I talk with my student here after the lesson.", "tokens": ["I", "talk", "with", "my", "student", "here", "after", "the", "lesson."]}, {"theme": "カフェ英語", "level": "★★★むずかしい", "ja": "このメニューは英語の練習にちょうどいいです。", "answer": "This menu is good for English practice.", "tokens": ["This", "menu", "is", "good", "for", "English", "practice."]}, {"theme": "旅英語", "level": "★やさしい", "ja": "私は空港へ行きます。", "answer": "I go to the airport.", "tokens": ["I", "go", "to", "the", "airport."]}, {"theme": "旅英語", "level": "★やさしい", "ja": "私はホテルに泊まります。", "answer": "I stay at a hotel.", "tokens": ["I", "stay", "at", "a", "hotel."]}, {"theme": "旅英語", "level": "★やさしい", "ja": "これは私のパスポートです。", "answer": "This is my passport.", "tokens": ["This", "is", "my", "passport."]}, {"theme": "旅英語", "level": "★やさしい", "ja": "私は水が必要です。", "answer": "I need water.", "tokens": ["I", "need", "water."]}, {"theme": "旅英語", "level": "★やさしい", "ja": "私は沖縄へ行きます。", "answer": "I go to Okinawa.", "tokens": ["I", "go", "to", "Okinawa."]}, {"theme": "旅英語", "level": "★やさしい", "ja": "彼はバスに乗ります。", "answer": "He takes a bus.", "tokens": ["He", "takes", "a", "bus."]}, {"theme": "旅英語", "level": "★やさしい", "ja": "私は駅で待ちます。", "answer": "I wait at the station.", "tokens": ["I", "wait", "at", "the", "station."]}, {"theme": "旅英語", "level": "★やさしい", "ja": "この道は長いです。", "answer": "This road is long.", "tokens": ["This", "road", "is", "long."]}, {"theme": "旅英語", "level": "★やさしい", "ja": "私は地図を見ます。", "answer": "I look at the map.", "tokens": ["I", "look", "at", "the", "map."]}, {"theme": "旅英語", "level": "★やさしい", "ja": "私たちは写真を撮ります。", "answer": "We take pictures.", "tokens": ["We", "take", "pictures."]}, {"theme": "旅英語", "level": "★やさしい", "ja": "このホテルは大きいです。", "answer": "This hotel is big.", "tokens": ["This", "hotel", "is", "big."]}, {"theme": "旅英語", "level": "★やさしい", "ja": "私は海が好きです。", "answer": "I like the sea.", "tokens": ["I", "like", "the", "sea."]}, {"theme": "旅英語", "level": "★やさしい", "ja": "彼女はお土産を買います。", "answer": "She buys souvenirs.", "tokens": ["She", "buys", "souvenirs."]}, {"theme": "旅英語", "level": "★やさしい", "ja": "私たちはタクシーを使います。", "answer": "We use a taxi.", "tokens": ["We", "use", "a", "taxi."]}, {"theme": "旅英語", "level": "★やさしい", "ja": "私は切符を買います。", "answer": "I buy a ticket.", "tokens": ["I", "buy", "a", "ticket."]}, {"theme": "旅英語", "level": "★やさしい", "ja": "この町は美しいです。", "answer": "This town is beautiful.", "tokens": ["This", "town", "is", "beautiful."]}, {"theme": "旅英語", "level": "★やさしい", "ja": "私は朝に出発します。", "answer": "I leave in the morning.", "tokens": ["I", "leave", "in", "the", "morning."]}, {"theme": "旅英語", "level": "★やさしい", "ja": "私たちは夜に到着します。", "answer": "We arrive at night.", "tokens": ["We", "arrive", "at", "night."]}, {"theme": "旅英語", "level": "★やさしい", "ja": "私は小さいバッグを持っています。", "answer": "I have a small bag.", "tokens": ["I", "have", "a", "small", "bag."]}, {"theme": "旅英語", "level": "★やさしい", "ja": "彼は旅行が好きです。", "answer": "He likes traveling.", "tokens": ["He", "likes", "traveling."]}, {"theme": "旅英語", "level": "★★ふつう", "ja": "私は朝8時にホテルを出ます。", "answer": "I leave the hotel at eight in the morning.", "tokens": ["I", "leave", "the", "hotel", "at", "eight", "in", "the", "morning."]}, {"theme": "旅英語", "level": "★★ふつう", "ja": "私たちは空港で友だちを待ちます。", "answer": "We wait for our friend at the airport.", "tokens": ["We", "wait", "for", "our", "friend", "at", "the", "airport."]}, {"theme": "旅英語", "level": "★★ふつう", "ja": "彼女は駅の近くでお土産を買います。", "answer": "She buys souvenirs near the station.", "tokens": ["She", "buys", "souvenirs", "near", "the", "station."]}, {"theme": "旅英語", "level": "★★ふつう", "ja": "私はバスでビーチへ行きます。", "answer": "I go to the beach by bus.", "tokens": ["I", "go", "to", "the", "beach", "by", "bus."]}, {"theme": "旅英語", "level": "★★ふつう", "ja": "このホテルは海の近くにあります。", "answer": "This hotel is near the sea.", "tokens": ["This", "hotel", "is", "near", "the", "sea."]}, {"theme": "旅英語", "level": "★★ふつう", "ja": "私はフロントで鍵を受け取ります。", "answer": "I get the key at the front desk.", "tokens": ["I", "get", "the", "key", "at", "the", "front", "desk."]}, {"theme": "旅英語", "level": "★★ふつう", "ja": "彼は旅行中にたくさん写真を撮ります。", "answer": "He takes many pictures during the trip.", "tokens": ["He", "takes", "many", "pictures", "during", "the", "trip."]}, {"theme": "旅英語", "level": "★★ふつう", "ja": "私たちは午後に小さな島を訪れます。", "answer": "We visit a small island in the afternoon.", "tokens": ["We", "visit", "a", "small", "island", "in", "the", "afternoon."]}, {"theme": "旅英語", "level": "★★ふつう", "ja": "私は旅行の前に天気を確認します。", "answer": "I check the weather before the trip.", "tokens": ["I", "check", "the", "weather", "before", "the", "trip."]}, {"theme": "旅英語", "level": "★★ふつう", "ja": "彼女はかばんの中に地図を入れます。", "answer": "She puts the map in her bag.", "tokens": ["She", "puts", "the", "map", "in", "her", "bag."]}, {"theme": "旅英語", "level": "★★ふつう", "ja": "私はこの電車に乗ります。", "answer": "I take this train.", "tokens": ["I", "take", "this", "train."]}, {"theme": "旅英語", "level": "★★ふつう", "ja": "私たちはホテルで朝食を食べます。", "answer": "We eat breakfast at the hotel.", "tokens": ["We", "eat", "breakfast", "at", "the", "hotel."]}, {"theme": "旅英語", "level": "★★ふつう", "ja": "彼はチケットをポケットに入れます。", "answer": "He puts the ticket in his pocket.", "tokens": ["He", "puts", "the", "ticket", "in", "his", "pocket."]}, {"theme": "旅英語", "level": "★★ふつう", "ja": "私は駅まで歩きます。", "answer": "I walk to the station.", "tokens": ["I", "walk", "to", "the", "station."]}, {"theme": "旅英語", "level": "★★ふつう", "ja": "このバスは空港へ行きます。", "answer": "This bus goes to the airport.", "tokens": ["This", "bus", "goes", "to", "the", "airport."]}, {"theme": "旅英語", "level": "★★ふつう", "ja": "私たちは観光案内所で質問します。", "answer": "We ask questions at the tourist office.", "tokens": ["We", "ask", "questions", "at", "the", "tourist", "office."]}, {"theme": "旅英語", "level": "★★ふつう", "ja": "私は近くの店で水を買います。", "answer": "I buy water at a nearby shop.", "tokens": ["I", "buy", "water", "at", "a", "nearby", "shop."]}, {"theme": "旅英語", "level": "★★ふつう", "ja": "彼女は旅行中に英語を使います。", "answer": "She uses English during her trip.", "tokens": ["She", "uses", "English", "during", "her", "trip."]}, {"theme": "旅英語", "level": "★★ふつう", "ja": "私はホテルの部屋で休みます。", "answer": "I rest in my hotel room.", "tokens": ["I", "rest", "in", "my", "hotel", "room."]}, {"theme": "旅英語", "level": "★★ふつう", "ja": "私たちは夜に町を歩きます。", "answer": "We walk around the town at night.", "tokens": ["We", "walk", "around", "the", "town", "at", "night."]}, {"theme": "旅英語", "level": "★★★むずかしい", "ja": "私は旅行の前に小さいノートに予定を書きます。", "answer": "I write my plans in a small notebook before the trip.", "tokens": ["I", "write", "my", "plans", "in", "a", "small", "notebook", "before", "the", "trip."]}, {"theme": "旅英語", "level": "★★★むずかしい", "ja": "私たちは空港に着いた後で昼食を食べます。", "answer": "We eat lunch after we arrive at the airport.", "tokens": ["We", "eat", "lunch", "after", "we", "arrive", "at", "the", "airport."]}, {"theme": "旅英語", "level": "★★★むずかしい", "ja": "彼女は道に迷った時に地図を見ます。", "answer": "She looks at the map when she gets lost.", "tokens": ["She", "looks", "at", "the", "map", "when", "she", "gets", "lost."]}, {"theme": "旅英語", "level": "★★★むずかしい", "ja": "このホテルは駅から近いのでとても便利です。", "answer": "This hotel is very convenient because it is near the station.", "tokens": ["This", "hotel", "is", "very", "convenient", "because", "it", "is", "near", "the", "station."]}, {"theme": "旅英語", "level": "★★★むずかしい", "ja": "私はチェックインの前にロビーで友だちを待ちます。", "answer": "I wait for my friend in the lobby before check-in.", "tokens": ["I", "wait", "for", "my", "friend", "in", "the", "lobby", "before", "check-in."]}, {"theme": "旅英語", "level": "★★★むずかしい", "ja": "彼は旅行中に毎日英語で短い日記を書きます。", "answer": "He writes a short diary in English every day during the trip.", "tokens": ["He", "writes", "a", "short", "diary", "in", "English", "every", "day", "during", "the", "trip."]}, {"theme": "旅英語", "level": "★★★むずかしい", "ja": "私たちは朝食の後で古い市場へ行きます。", "answer": "We go to the old market after breakfast.", "tokens": ["We", "go", "to", "the", "old", "market", "after", "breakfast."]}, {"theme": "旅英語", "level": "★★★むずかしい", "ja": "私は駅でスタッフに道を尋ねます。", "answer": "I ask the staff for directions at the station.", "tokens": ["I", "ask", "the", "staff", "for", "directions", "at", "the", "station."]}, {"theme": "旅英語", "level": "★★★むずかしい", "ja": "彼女は母のために小さいお土産を買います。", "answer": "She buys a small souvenir for her mother.", "tokens": ["She", "buys", "a", "small", "souvenir", "for", "her", "mother."]}, {"theme": "旅英語", "level": "★★★むずかしい", "ja": "私たちは雨が降ったらホテルで休みます。", "answer": "We rest at the hotel if it rains.", "tokens": ["We", "rest", "at", "the", "hotel", "if", "it", "rains."]}, {"theme": "旅英語", "level": "★★★むずかしい", "ja": "この電車は混んでいますが速いです。", "answer": "This train is crowded, but it is fast.", "tokens": ["This", "train", "is", "crowded,", "but", "it", "is", "fast."]}, {"theme": "旅英語", "level": "★★★むずかしい", "ja": "私は飛行機の中で少し眠ります。", "answer": "I sleep a little on the plane.", "tokens": ["I", "sleep", "a", "little", "on", "the", "plane."]}, {"theme": "旅英語", "level": "★★★むずかしい", "ja": "彼らは海の近くのレストランで夕食を食べます。", "answer": "They eat dinner at a restaurant near the sea.", "tokens": ["They", "eat", "dinner", "at", "a", "restaurant", "near", "the", "sea."]}, {"theme": "旅英語", "level": "★★★むずかしい", "ja": "私はフロントの人に新しいタオルを頼みます。", "answer": "I ask the front desk staff for a new towel.", "tokens": ["I", "ask", "the", "front", "desk", "staff", "for", "a", "new", "towel."]}, {"theme": "旅英語", "level": "★★★むずかしい", "ja": "私たちは夕方にビーチで美しい夕日を見ます。", "answer": "We see a beautiful sunset at the beach in the evening.", "tokens": ["We", "see", "a", "beautiful", "sunset", "at", "the", "beach", "in", "the", "evening."]}, {"theme": "旅英語", "level": "★★★むずかしい", "ja": "彼女は旅行の写真を友だちに送ります。", "answer": "She sends travel pictures to her friends.", "tokens": ["She", "sends", "travel", "pictures", "to", "her", "friends."]}, {"theme": "旅英語", "level": "★★★むずかしい", "ja": "私は早い便に乗るので早く寝ます。", "answer": "I go to bed early because I take an early flight.", "tokens": ["I", "go", "to", "bed", "early", "because", "I", "take", "an", "early", "flight."]}, {"theme": "旅英語", "level": "★★★むずかしい", "ja": "この町には小さくて静かなカフェがあります。", "answer": "There is a small quiet cafe in this town.", "tokens": ["There", "is", "a", "small", "quiet", "cafe", "in", "this", "town."]}, {"theme": "旅英語", "level": "★★★むずかしい", "ja": "私たちは駅に着いたらタクシーに乗ります。", "answer": "We take a taxi when we arrive at the station.", "tokens": ["We", "take", "a", "taxi", "when", "we", "arrive", "at", "the", "station."]}, {"theme": "旅英語", "level": "★★★むずかしい", "ja": "私はホテルの近くで温かいコーヒーを買います。", "answer": "I buy hot coffee near the hotel.", "tokens": ["I", "buy", "hot", "coffee", "near", "the", "hotel."]}, {"theme": "日常英語", "level": "★やさしい", "ja": "私は朝食を作ります。", "answer": "I make breakfast.", "tokens": ["I", "make", "breakfast."]}, {"theme": "日常英語", "level": "★やさしい", "ja": "私は犬を散歩させます。", "answer": "I walk my dog.", "tokens": ["I", "walk", "my", "dog."]}, {"theme": "日常英語", "level": "★やさしい", "ja": "彼女は部屋を掃除します。", "answer": "She cleans her room.", "tokens": ["She", "cleans", "her", "room."]}, {"theme": "日常英語", "level": "★やさしい", "ja": "彼は音楽を聞きます。", "answer": "He listens to music.", "tokens": ["He", "listens", "to", "music."]}, {"theme": "日常英語", "level": "★やさしい", "ja": "私は友だちに会います。", "answer": "I meet my friend.", "tokens": ["I", "meet", "my", "friend."]}, {"theme": "日常英語", "level": "★やさしい", "ja": "私たちは夕食を食べます。", "answer": "We eat dinner.", "tokens": ["We", "eat", "dinner."]}, {"theme": "日常英語", "level": "★やさしい", "ja": "私は車を運転します。", "answer": "I drive a car.", "tokens": ["I", "drive", "a", "car."]}, {"theme": "日常英語", "level": "★やさしい", "ja": "彼女は本を読みます。", "answer": "She reads a book.", "tokens": ["She", "reads", "a", "book."]}, {"theme": "日常英語", "level": "★やさしい", "ja": "私はメールを書きます。", "answer": "I write an email.", "tokens": ["I", "write", "an", "email."]}, {"theme": "日常英語", "level": "★やさしい", "ja": "この服は新しいです。", "answer": "This shirt is new.", "tokens": ["This", "shirt", "is", "new."]}, {"theme": "日常英語", "level": "★やさしい", "ja": "私は買い物に行きます。", "answer": "I go shopping.", "tokens": ["I", "go", "shopping."]}, {"theme": "日常英語", "level": "★やさしい", "ja": "彼は早く寝ます。", "answer": "He goes to bed early.", "tokens": ["He", "goes", "to", "bed", "early."]}, {"theme": "日常英語", "level": "★やさしい", "ja": "私は母に電話します。", "answer": "I call my mother.", "tokens": ["I", "call", "my", "mother."]}, {"theme": "日常英語", "level": "★やさしい", "ja": "私たちは映画を見ます。", "answer": "We watch a movie.", "tokens": ["We", "watch", "a", "movie."]}, {"theme": "日常英語", "level": "★やさしい", "ja": "彼女は夕方に走ります。", "answer": "She runs in the evening.", "tokens": ["She", "runs", "in", "the", "evening."]}, {"theme": "日常英語", "level": "★やさしい", "ja": "私は昼に休みます。", "answer": "I rest at noon.", "tokens": ["I", "rest", "at", "noon."]}, {"theme": "日常英語", "level": "★やさしい", "ja": "この道は静かです。", "answer": "This street is quiet.", "tokens": ["This", "street", "is", "quiet."]}, {"theme": "日常英語", "level": "★やさしい", "ja": "私は週末に料理します。", "answer": "I cook on weekends.", "tokens": ["I", "cook", "on", "weekends."]}, {"theme": "日常英語", "level": "★やさしい", "ja": "彼はニュースを見ます。", "answer": "He watches the news.", "tokens": ["He", "watches", "the", "news."]}, {"theme": "日常英語", "level": "★やさしい", "ja": "私は毎日英語を使います。", "answer": "I use English every day.", "tokens": ["I", "use", "English", "every", "day."]}, {"theme": "日常英語", "level": "★★ふつう", "ja": "私は朝食の後に皿を洗います。", "answer": "I wash the dishes after breakfast.", "tokens": ["I", "wash", "the", "dishes", "after", "breakfast."]}, {"theme": "日常英語", "level": "★★ふつう", "ja": "彼女は毎週土曜日にスーパーへ行きます。", "answer": "She goes to the supermarket every Saturday.", "tokens": ["She", "goes", "to", "the", "supermarket", "every", "Saturday."]}, {"theme": "日常英語", "level": "★★ふつう", "ja": "私たちは夕食の前にテーブルを片付けます。", "answer": "We clear the table before dinner.", "tokens": ["We", "clear", "the", "table", "before", "dinner."]}, {"theme": "日常英語", "level": "★★ふつう", "ja": "彼は夜に家族に電話します。", "answer": "He calls his family at night.", "tokens": ["He", "calls", "his", "family", "at", "night."]}, {"theme": "日常英語", "level": "★★ふつう", "ja": "私は仕事の後に少し休みます。", "answer": "I rest a little after work.", "tokens": ["I", "rest", "a", "little", "after", "work."]}, {"theme": "日常英語", "level": "★★ふつう", "ja": "彼女は公園で犬を散歩させます。", "answer": "She walks her dog in the park.", "tokens": ["She", "walks", "her", "dog", "in", "the", "park."]}, {"theme": "日常英語", "level": "★★ふつう", "ja": "私は友だちに写真を送ります。", "answer": "I send a picture to my friend.", "tokens": ["I", "send", "a", "picture", "to", "my", "friend."]}, {"theme": "日常英語", "level": "★★ふつう", "ja": "私たちは日曜日に家を掃除します。", "answer": "We clean the house on Sunday.", "tokens": ["We", "clean", "the", "house", "on", "Sunday."]}, {"theme": "日常英語", "level": "★★ふつう", "ja": "彼は朝にごみを出します。", "answer": "He takes out the trash in the morning.", "tokens": ["He", "takes", "out", "the", "trash", "in", "the", "morning."]}, {"theme": "日常英語", "level": "★★ふつう", "ja": "私は台所で昼食を作ります。", "answer": "I make lunch in the kitchen.", "tokens": ["I", "make", "lunch", "in", "the", "kitchen."]}, {"theme": "日常英語", "level": "★★ふつう", "ja": "彼女は寝る前に本を読みます。", "answer": "She reads a book before bed.", "tokens": ["She", "reads", "a", "book", "before", "bed."]}, {"theme": "日常英語", "level": "★★ふつう", "ja": "私はスーパーで新鮮な野菜を買います。", "answer": "I buy fresh vegetables at the supermarket.", "tokens": ["I", "buy", "fresh", "vegetables", "at", "the", "supermarket."]}, {"theme": "日常英語", "level": "★★ふつう", "ja": "彼らは週末に祖母を訪ねます。", "answer": "They visit their grandmother on weekends.", "tokens": ["They", "visit", "their", "grandmother", "on", "weekends."]}, {"theme": "日常英語", "level": "★★ふつう", "ja": "私は夕方に近所を歩きます。", "answer": "I walk around my neighborhood in the evening.", "tokens": ["I", "walk", "around", "my", "neighborhood", "in", "the", "evening."]}, {"theme": "日常英語", "level": "★★ふつう", "ja": "私たちは昼食後にコーヒーを飲みます。", "answer": "We drink coffee after lunch.", "tokens": ["We", "drink", "coffee", "after", "lunch."]}, {"theme": "日常英語", "level": "★★ふつう", "ja": "この洗濯物はまだ濡れています。", "answer": "This laundry is still wet.", "tokens": ["This", "laundry", "is", "still", "wet."]}, {"theme": "日常英語", "level": "★★ふつう", "ja": "彼女はいつも私を手伝ってくれます。", "answer": "She always helps me.", "tokens": ["She", "always", "helps", "me."]}, {"theme": "日常英語", "level": "★★ふつう", "ja": "私は新しいレシピを試します。", "answer": "I try a new recipe.", "tokens": ["I", "try", "a", "new", "recipe."]}, {"theme": "日常英語", "level": "★★ふつう", "ja": "彼は毎晩日記を書きます。", "answer": "He writes a diary every night.", "tokens": ["He", "writes", "a", "diary", "every", "night."]}, {"theme": "日常英語", "level": "★★ふつう", "ja": "私は朝に短いニュースを読みます。", "answer": "I read short news in the morning.", "tokens": ["I", "read", "short", "news", "in", "the", "morning."]}, {"theme": "日常英語", "level": "★★★むずかしい", "ja": "私は朝ごはんを作る前にコーヒーを飲みます。", "answer": "I drink coffee before I make breakfast.", "tokens": ["I", "drink", "coffee", "before", "I", "make", "breakfast."]}, {"theme": "日常英語", "level": "★★★むずかしい", "ja": "彼女は仕事から帰った後で犬を散歩させます。", "answer": "She walks her dog after she comes home from work.", "tokens": ["She", "walks", "her", "dog", "after", "she", "comes", "home", "from", "work."]}, {"theme": "日常英語", "level": "★★★むずかしい", "ja": "私たちは日曜日の朝に家の近くを歩きます。", "answer": "We walk near our house on Sunday morning.", "tokens": ["We", "walk", "near", "our", "house", "on", "Sunday", "morning."]}, {"theme": "日常英語", "level": "★★★むずかしい", "ja": "彼は忙しい時も家族に短いメッセージを送ります。", "answer": "He sends a short message to his family when he is busy.", "tokens": ["He", "sends", "a", "short", "message", "to", "his", "family", "when", "he", "is", "busy."]}, {"theme": "日常英語", "level": "★★★むずかしい", "ja": "私は雨の日には家で映画を見ます。", "answer": "I watch movies at home on rainy days.", "tokens": ["I", "watch", "movies", "at", "home", "on", "rainy", "days."]}, {"theme": "日常英語", "level": "★★★むずかしい", "ja": "彼女は寝る前に明日の予定を確認します。", "answer": "She checks tomorrow's schedule before bed.", "tokens": ["She", "checks", "tomorrow's", "schedule", "before", "bed."]}, {"theme": "日常英語", "level": "★★★むずかしい", "ja": "私たちは夕食の後に台所をきれいにします。", "answer": "We clean the kitchen after dinner.", "tokens": ["We", "clean", "the", "kitchen", "after", "dinner."]}, {"theme": "日常英語", "level": "★★★むずかしい", "ja": "この音楽は私をリラックスさせてくれます。", "answer": "This music makes me relaxed.", "tokens": ["This", "music", "makes", "me", "relaxed."]}, {"theme": "日常英語", "level": "★★★むずかしい", "ja": "私は友だちに新しいレシピを教えます。", "answer": "I teach my friend a new recipe.", "tokens": ["I", "teach", "my", "friend", "a", "new", "recipe."]}, {"theme": "日常英語", "level": "★★★むずかしい", "ja": "彼は私に駅までの道を教えてくれます。", "answer": "He tells me the way to the station.", "tokens": ["He", "tells", "me", "the", "way", "to", "the", "station."]}, {"theme": "日常英語", "level": "★★★むずかしい", "ja": "私は母のためにスーパーで花を買います。", "answer": "I buy flowers for my mother at the supermarket.", "tokens": ["I", "buy", "flowers", "for", "my", "mother", "at", "the", "supermarket."]}, {"theme": "日常英語", "level": "★★★むずかしい", "ja": "彼女は私に温かいお茶を作ってくれます。", "answer": "She makes me hot tea.", "tokens": ["She", "makes", "me", "hot", "tea."]}, {"theme": "日常英語", "level": "★★★むずかしい", "ja": "私たちは掃除の後で部屋をきれいに保ちます。", "answer": "We keep the room clean after cleaning.", "tokens": ["We", "keep", "the", "room", "clean", "after", "cleaning."]}, {"theme": "日常英語", "level": "★★★むずかしい", "ja": "私は窓を開けたまま寝ません。", "answer": "I do not sleep with the window open.", "tokens": ["I", "do", "not", "sleep", "with", "the", "window", "open."]}, {"theme": "日常英語", "level": "★★★むずかしい", "ja": "彼は毎朝ラジオで英語を聞きます。", "answer": "He listens to English on the radio every morning.", "tokens": ["He", "listens", "to", "English", "on", "the", "radio", "every", "morning."]}, {"theme": "日常英語", "level": "★★★むずかしい", "ja": "私は疲れている時は早く寝ます。", "answer": "I go to bed early when I am tired.", "tokens": ["I", "go", "to", "bed", "early", "when", "I", "am", "tired."]}, {"theme": "日常英語", "level": "★★★むずかしい", "ja": "この小さな習慣は私を元気にします。", "answer": "This small habit makes me cheerful.", "tokens": ["This", "small", "habit", "makes", "me", "cheerful."]}, {"theme": "日常英語", "level": "★★★むずかしい", "ja": "彼女は忙しい日にも夕食を作ります。", "answer": "She cooks dinner even on busy days.", "tokens": ["She", "cooks", "dinner", "even", "on", "busy", "days."]}, {"theme": "日常英語", "level": "★★★むずかしい", "ja": "私たちは家族のために部屋を暖かくします。", "answer": "We keep the room warm for our family.", "tokens": ["We", "keep", "the", "room", "warm", "for", "our", "family."]}, {"theme": "日常英語", "level": "★★★むずかしい", "ja": "私は週末に新しい場所を少し歩きます。", "answer": "I walk around a new place on weekends.", "tokens": ["I", "walk", "around", "a", "new", "place", "on", "weekends."]}, {"theme": "疑問文", "level": "★やさしい", "ja": "あなたは英語が好きですか。", "answer": "Do you like English?", "tokens": ["Do", "you", "like", "English?"]}, {"theme": "疑問文", "level": "★やさしい", "ja": "あなたはコーヒーを飲みますか。", "answer": "Do you drink coffee?", "tokens": ["Do", "you", "drink", "coffee?"]}, {"theme": "疑問文", "level": "★やさしい", "ja": "彼女は沖縄に住んでいますか。", "answer": "Does she live in Okinawa?", "tokens": ["Does", "she", "live", "in", "Okinawa?"]}, {"theme": "疑問文", "level": "★やさしい", "ja": "これはあなたのバッグですか。", "answer": "Is this your bag?", "tokens": ["Is", "this", "your", "bag?"]}, {"theme": "疑問文", "level": "★やさしい", "ja": "あなたは忙しいですか。", "answer": "Are you busy?", "tokens": ["Are", "you", "busy?"]}, {"theme": "疑問文", "level": "★やさしい", "ja": "彼は学生ですか。", "answer": "Is he a student?", "tokens": ["Is", "he", "a", "student?"]}, {"theme": "疑問文", "level": "★やさしい", "ja": "あなたは朝食を食べますか。", "answer": "Do you eat breakfast?", "tokens": ["Do", "you", "eat", "breakfast?"]}, {"theme": "疑問文", "level": "★やさしい", "ja": "彼女は音楽を聞きますか。", "answer": "Does she listen to music?", "tokens": ["Does", "she", "listen", "to", "music?"]}, {"theme": "疑問文", "level": "★やさしい", "ja": "あなたは車を運転しますか。", "answer": "Do you drive a car?", "tokens": ["Do", "you", "drive", "a", "car?"]}, {"theme": "疑問文", "level": "★やさしい", "ja": "この席は空いていますか。", "answer": "Is this seat free?", "tokens": ["Is", "this", "seat", "free?"]}, {"theme": "疑問文", "level": "★やさしい", "ja": "あなたはここで勉強しますか。", "answer": "Do you study here?", "tokens": ["Do", "you", "study", "here?"]}, {"theme": "疑問文", "level": "★やさしい", "ja": "彼は日本語を話しますか。", "answer": "Does he speak Japanese?", "tokens": ["Does", "he", "speak", "Japanese?"]}, {"theme": "疑問文", "level": "★やさしい", "ja": "これは辛いですか。", "answer": "Is this spicy?", "tokens": ["Is", "this", "spicy?"]}, {"theme": "疑問文", "level": "★やさしい", "ja": "あなたは水が必要ですか。", "answer": "Do you need water?", "tokens": ["Do", "you", "need", "water?"]}, {"theme": "疑問文", "level": "★やさしい", "ja": "彼女は猫が好きですか。", "answer": "Does she like cats?", "tokens": ["Does", "she", "like", "cats?"]}, {"theme": "疑問文", "level": "★やさしい", "ja": "あなたは今時間がありますか。", "answer": "Do you have time now?", "tokens": ["Do", "you", "have", "time", "now?"]}, {"theme": "疑問文", "level": "★やさしい", "ja": "この店は新しいですか。", "answer": "Is this shop new?", "tokens": ["Is", "this", "shop", "new?"]}, {"theme": "疑問文", "level": "★やさしい", "ja": "あなたは毎日歩きますか。", "answer": "Do you walk every day?", "tokens": ["Do", "you", "walk", "every", "day?"]}, {"theme": "疑問文", "level": "★やさしい", "ja": "彼らはここに来ますか。", "answer": "Do they come here?", "tokens": ["Do", "they", "come", "here?"]}, {"theme": "疑問文", "level": "★やさしい", "ja": "それは簡単ですか。", "answer": "Is it easy?", "tokens": ["Is", "it", "easy?"]}, {"theme": "疑問文", "level": "★★ふつう", "ja": "あなたは朝に英語を勉強しますか。", "answer": "Do you study English in the morning?", "tokens": ["Do", "you", "study", "English", "in", "the", "morning?"]}, {"theme": "疑問文", "level": "★★ふつう", "ja": "彼女は週末にカフェへ行きますか。", "answer": "Does she go to a cafe on weekends?", "tokens": ["Does", "she", "go", "to", "a", "cafe", "on", "weekends?"]}, {"theme": "疑問文", "level": "★★ふつう", "ja": "あなたは夕食後にテレビを見ますか。", "answer": "Do you watch TV after dinner?", "tokens": ["Do", "you", "watch", "TV", "after", "dinner?"]}, {"theme": "疑問文", "level": "★★ふつう", "ja": "彼はバスで学校へ行きますか。", "answer": "Does he go to school by bus?", "tokens": ["Does", "he", "go", "to", "school", "by", "bus?"]}, {"theme": "疑問文", "level": "★★ふつう", "ja": "あなたはどこに住んでいますか。", "answer": "Where do you live?", "tokens": ["Where", "do", "you", "live?"]}, {"theme": "疑問文", "level": "★★ふつう", "ja": "あなたはいつ英語を勉強しますか。", "answer": "When do you study English?", "tokens": ["When", "do", "you", "study", "English?"]}, {"theme": "疑問文", "level": "★★ふつう", "ja": "彼女は何を飲みますか。", "answer": "What does she drink?", "tokens": ["What", "does", "she", "drink?"]}, {"theme": "疑問文", "level": "★★ふつう", "ja": "あなたは誰と旅行しますか。", "answer": "Who do you travel with?", "tokens": ["Who", "do", "you", "travel", "with?"]}, {"theme": "疑問文", "level": "★★ふつう", "ja": "あなたはなぜ英語を学びますか。", "answer": "Why do you learn English?", "tokens": ["Why", "do", "you", "learn", "English?"]}, {"theme": "疑問文", "level": "★★ふつう", "ja": "あなたはどうやって駅へ行きますか。", "answer": "How do you go to the station?", "tokens": ["How", "do", "you", "go", "to", "the", "station?"]}, {"theme": "疑問文", "level": "★★ふつう", "ja": "これはいくらですか。", "answer": "How much is this?", "tokens": ["How", "much", "is", "this?"]}, {"theme": "疑問文", "level": "★★ふつう", "ja": "駅はどこですか。", "answer": "Where is the station?", "tokens": ["Where", "is", "the", "station?"]}, {"theme": "疑問文", "level": "★★ふつう", "ja": "あなたは何時に起きますか。", "answer": "What time do you get up?", "tokens": ["What", "time", "do", "you", "get", "up?"]}, {"theme": "疑問文", "level": "★★ふつう", "ja": "彼はどの本を読みますか。", "answer": "Which book does he read?", "tokens": ["Which", "book", "does", "he", "read?"]}, {"theme": "疑問文", "level": "★★ふつう", "ja": "あなたはどのくらいの頻度で料理しますか。", "answer": "How often do you cook?", "tokens": ["How", "often", "do", "you", "cook?"]}, {"theme": "疑問文", "level": "★★ふつう", "ja": "彼女は今日忙しいですか。", "answer": "Is she busy today?", "tokens": ["Is", "she", "busy", "today?"]}, {"theme": "疑問文", "level": "★★ふつう", "ja": "あなたはこの席が好きですか。", "answer": "Do you like this seat?", "tokens": ["Do", "you", "like", "this", "seat?"]}, {"theme": "疑問文", "level": "★★ふつう", "ja": "彼らは英語を話しますか。", "answer": "Do they speak English?", "tokens": ["Do", "they", "speak", "English?"]}, {"theme": "疑問文", "level": "★★ふつう", "ja": "あなたは昼食に何を食べますか。", "answer": "What do you eat for lunch?", "tokens": ["What", "do", "you", "eat", "for", "lunch?"]}, {"theme": "疑問文", "level": "★★ふつう", "ja": "彼女はどこで働いていますか。", "answer": "Where does she work?", "tokens": ["Where", "does", "she", "work?"]}, {"theme": "疑問文", "level": "★★★むずかしい", "ja": "あなたは仕事の前にどこでコーヒーを飲みますか。", "answer": "Where do you drink coffee before work?", "tokens": ["Where", "do", "you", "drink", "coffee", "before", "work?"]}, {"theme": "疑問文", "level": "★★★むずかしい", "ja": "彼女はなぜ毎朝英語を勉強しますか。", "answer": "Why does she study English every morning?", "tokens": ["Why", "does", "she", "study", "English", "every", "morning?"]}, {"theme": "疑問文", "level": "★★★むずかしい", "ja": "あなたは週末に誰とカフェへ行きますか。", "answer": "Who do you go to a cafe with on weekends?", "tokens": ["Who", "do", "you", "go", "to", "a", "cafe", "with", "on", "weekends?"]}, {"theme": "疑問文", "level": "★★★むずかしい", "ja": "彼は夕食の後に何をしますか。", "answer": "What does he do after dinner?", "tokens": ["What", "does", "he", "do", "after", "dinner?"]}, {"theme": "疑問文", "level": "★★★むずかしい", "ja": "あなたは旅行の前に何を準備しますか。", "answer": "What do you prepare before the trip?", "tokens": ["What", "do", "you", "prepare", "before", "the", "trip?"]}, {"theme": "疑問文", "level": "★★★むずかしい", "ja": "彼女はいつ友だちにメッセージを送りますか。", "answer": "When does she send a message to her friend?", "tokens": ["When", "does", "she", "send", "a", "message", "to", "her", "friend?"]}, {"theme": "疑問文", "level": "★★★むずかしい", "ja": "あなたは空港までどうやって行きますか。", "answer": "How do you get to the airport?", "tokens": ["How", "do", "you", "get", "to", "the", "airport?"]}, {"theme": "疑問文", "level": "★★★むずかしい", "ja": "このホテルは駅からどのくらい遠いですか。", "answer": "How far is this hotel from the station?", "tokens": ["How", "far", "is", "this", "hotel", "from", "the", "station?"]}, {"theme": "疑問文", "level": "★★★むずかしい", "ja": "あなたはなぜこのカフェが好きですか。", "answer": "Why do you like this cafe?", "tokens": ["Why", "do", "you", "like", "this", "cafe?"]}, {"theme": "疑問文", "level": "★★★むずかしい", "ja": "彼は朝食に何を食べますか。", "answer": "What does he eat for breakfast?", "tokens": ["What", "does", "he", "eat", "for", "breakfast?"]}, {"theme": "疑問文", "level": "★★★むずかしい", "ja": "あなたは英語を話す時に緊張しますか。", "answer": "Do you get nervous when you speak English?", "tokens": ["Do", "you", "get", "nervous", "when", "you", "speak", "English?"]}, {"theme": "疑問文", "level": "★★★むずかしい", "ja": "彼女は雨の日にどこへ行きますか。", "answer": "Where does she go on rainy days?", "tokens": ["Where", "does", "she", "go", "on", "rainy", "days?"]}, {"theme": "疑問文", "level": "★★★むずかしい", "ja": "あなたは寝る前に何を読みますか。", "answer": "What do you read before bed?", "tokens": ["What", "do", "you", "read", "before", "bed?"]}, {"theme": "疑問文", "level": "★★★むずかしい", "ja": "彼らは週末にどこでテニスをしますか。", "answer": "Where do they play tennis on weekends?", "tokens": ["Where", "do", "they", "play", "tennis", "on", "weekends?"]}, {"theme": "疑問文", "level": "★★★むずかしい", "ja": "あなたはどの飲み物を注文したいですか。", "answer": "Which drink do you want to order?", "tokens": ["Which", "drink", "do", "you", "want", "to", "order?"]}, {"theme": "疑問文", "level": "★★★むずかしい", "ja": "彼女は誰にその写真を送りますか。", "answer": "Who does she send the picture to?", "tokens": ["Who", "does", "she", "send", "the", "picture", "to?"]}, {"theme": "疑問文", "level": "★★★むずかしい", "ja": "あなたは友だちのために何を買いますか。", "answer": "What do you buy for your friend?", "tokens": ["What", "do", "you", "buy", "for", "your", "friend?"]}, {"theme": "疑問文", "level": "★★★むずかしい", "ja": "この音楽はあなたを幸せにしますか。", "answer": "Does this music make you happy?", "tokens": ["Does", "this", "music", "make", "you", "happy?"]}, {"theme": "疑問文", "level": "★★★むずかしい", "ja": "あなたは部屋をどうやってきれいに保ちますか。", "answer": "How do you keep your room clean?", "tokens": ["How", "do", "you", "keep", "your", "room", "clean?"]}, {"theme": "疑問文", "level": "★★★むずかしい", "ja": "彼はなぜ早く寝ますか。", "answer": "Why does he go to bed early?", "tokens": ["Why", "does", "he", "go", "to", "bed", "early?"]}];
+
+const THEMES = ["ぜんぶ", "超基礎英語", "カフェ英語", "旅英語", "日常英語", "疑問文"];
+const LEVELS = ["ぜんぶ", "★やさしい", "★★ふつう", "★★★むずかしい"];
+const THEME_ICONS = {
+  "ぜんぶ":"🎲",
+  "超基礎英語":"📘",
+  "カフェ英語":"☕",
+  "旅英語":"🧳",
+  "日常英語":"🏠",
+  "疑問文":"❓"
+};
+const LEVEL_ICONS = {
+  "ぜんぶ":"🎲",
+  "★やさしい":"⭐",
+  "★★ふつう":"⭐⭐",
+  "★★★むずかしい":"⭐⭐⭐"
+};
+
+let selectedTheme = "ぜんぶ";
+let selectedLevel = "ぜんぶ";
 let quiz = [];
 let index = 0;
 let score = 0;
-let answered = false;
 let mistakes = [];
+let answered = false;
 let currentOrder = [];
 let currentTokens = [];
 
 const $ = (id) => document.getElementById(id);
-const modeLabels = {
-  all:"ぜんぶランダム",
-  vocab:"単語・熟語",
-  reorder:"重要文ならべ替え",
-  cloze:"穴埋め"
-};
 
-function scrollToQuestionTop() {
-  const quizTop = $("quiz");
-  if (quizTop) quizTop.scrollIntoView({ behavior: "smooth", block: "start" });
-}
 function shuffle(arr) {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
@@ -347,6 +522,97 @@ function shuffle(arr) {
 function escapeHTML(s) {
   return String(s).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
 }
+function promptAvailableWidth() {
+  const el = $("questionText");
+  const box = el && el.parentElement ? el.parentElement : null;
+  const base = box ? box.clientWidth : Math.min(window.innerWidth || 360, 760);
+  // 内側余白・アイコン分を安全側に引く。ここを小さめにすることで、絶対に右端で切れない。
+  return Math.max(160, Math.floor(base - 64));
+}
+
+function getPromptFont(el) {
+  const style = window.getComputedStyle(el);
+  return `${style.fontWeight || 950} ${style.fontSize || '20px'} ${style.fontFamily || 'sans-serif'}`;
+}
+
+function measureTextWidth(ctx, text) {
+  try { return ctx.measureText(text).width; }
+  catch(e) { return Array.from(text).length * 22; }
+}
+
+function splitJapaneseByPixelWidth(text) {
+  const raw = String(text || "").trim();
+  const chars = Array.from(raw);
+  const el = $("questionText");
+  const maxWidth = promptAvailableWidth();
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+  ctx.font = getPromptFont(el);
+
+  const lines = [];
+  let line = "";
+  const softBreakChars = new Set(Array.from("はがをにでへとものやか、。・／/ "));
+
+  for (const ch of chars) {
+    const trial = line + ch;
+    if (line && measureTextWidth(ctx, trial) > maxWidth) {
+      // できれば助詞や句読点の後で切る。ただし幅を超える行は絶対に残さない。
+      let cut = -1;
+      const lineChars = Array.from(line);
+      for (let i = lineChars.length - 1; i >= Math.max(3, lineChars.length - 6); i--) {
+        if (softBreakChars.has(lineChars[i])) { cut = i + 1; break; }
+      }
+      if (cut > 0 && cut < lineChars.length) {
+        const first = lineChars.slice(0, cut).join("");
+        const second = lineChars.slice(cut).join("");
+        if (measureTextWidth(ctx, first) <= maxWidth && second) {
+          lines.push(first);
+          line = second + ch;
+        } else {
+          lines.push(line);
+          line = ch;
+        }
+      } else {
+        lines.push(line);
+        line = ch;
+      }
+    } else {
+      line = trial;
+    }
+  }
+  if (line) lines.push(line);
+
+  // 念のため、まだ幅を超える行は1文字ずつ再分割する。
+  const safe = [];
+  for (const ln of lines) {
+    let buf = "";
+    for (const ch of Array.from(ln)) {
+      const trial = buf + ch;
+      if (buf && measureTextWidth(ctx, trial) > maxWidth) {
+        safe.push(buf);
+        buf = ch;
+      } else {
+        buf = trial;
+      }
+    }
+    if (buf) safe.push(buf);
+  }
+  return safe;
+}
+
+function makeJapanesePromptHTML(text) {
+  return splitJapaneseByPixelWidth(text)
+    .map(line => `<span class="promptLine">${escapeHTML(line)}</span>`)
+    .join("");
+}
+
+function renderJapanesePrompt(el, text) {
+  el.className = "question safePrompt";
+  if ((text || "").length >= 18) el.classList.add("long-ja");
+  if ((text || "").length >= 28) el.classList.add("very-long-ja");
+  el.innerHTML = makeJapanesePromptHTML(text);
+}
+
 function normalizeSentence(s) {
   return (s || "")
     .replace(/[“”]/g, '"')
@@ -355,101 +621,87 @@ function normalizeSentence(s) {
     .replace(/\s+/g, " ")
     .trim();
 }
-function buildPool() {
-  const vocabQuestions = DATA.vocab.map(x => ({...x, quizType:"vocab", direction: Math.random() < 0.5 ? "en-ja" : "ja-en"}));
-  const reorderQuestions = DATA.reorder.map(x => ({...x, quizType:"reorder"}));
-  const clozeQuestions = DATA.cloze.map(x => ({...x, quizType:"cloze"}));
-  if (mode === "vocab") return vocabQuestions;
-  if (mode === "reorder") return reorderQuestions;
-  if (mode === "cloze") return clozeQuestions;
-  return [...vocabQuestions, ...reorderQuestions, ...clozeQuestions];
+function scrollToQuestionTop() {
+  const quizTop = $("quiz");
+  if (quizTop) quizTop.scrollIntoView({ behavior: "smooth", block: "start" });
 }
+
+function makeButtons() {
+  const themeGrid = $("themeGrid");
+  const levelGrid = $("levelGrid");
+  themeGrid.innerHTML = "";
+  levelGrid.innerHTML = "";
+
+  THEMES.forEach(t => {
+    const btn = document.createElement("button");
+    btn.className = "selectBtn" + (t === selectedTheme ? " selected" : "");
+    btn.innerHTML = `<span class="icon">${THEME_ICONS[t]}</span>${escapeHTML(t)}`;
+    btn.addEventListener("click", () => {
+      selectedTheme = t;
+      makeButtons();
+    });
+    themeGrid.appendChild(btn);
+  });
+
+  LEVELS.forEach(l => {
+    const btn = document.createElement("button");
+    btn.className = "selectBtn" + (l === selectedLevel ? " selected" : "");
+    btn.innerHTML = `<span class="icon">${LEVEL_ICONS[l]}</span>${escapeHTML(l)}`;
+    btn.addEventListener("click", () => {
+      selectedLevel = l;
+      makeButtons();
+    });
+    levelGrid.appendChild(btn);
+  });
+}
+
+function buildPool() {
+  return QUESTIONS.filter(q => {
+    const themeOK = selectedTheme === "ぜんぶ" || q.theme === selectedTheme;
+    const levelOK = selectedLevel === "ぜんぶ" || q.level === selectedLevel;
+    return themeOK && levelOK;
+  });
+}
+
 function startQuiz() {
-  quiz = shuffle(buildPool()).slice(0, 10);
-  index = 0; score = 0; mistakes = [];
+  const pool = buildPool();
+  quiz = shuffle(pool).slice(0, 10);
+  index = 0;
+  score = 0;
+  mistakes = [];
   $("setup").classList.add("hidden");
   $("result").classList.add("hidden");
   $("quiz").classList.remove("hidden");
   showQuestion();
   setTimeout(scrollToQuestionTop, 50);
 }
+
 function resetQuestionUI() {
   answered = false;
+  currentOrder = [];
+  currentTokens = [];
   $("feedback").className = "feedback hidden";
   $("feedback").textContent = "";
   $("nextBtn").classList.add("hidden");
-  $("options").innerHTML = "";
-  $("options").classList.add("hidden");
-  $("reorderArea").classList.add("hidden");
   $("answerArea").innerHTML = "";
   $("wordBank").innerHTML = "";
-  currentOrder = [];
-  currentTokens = [];
 }
+
 function showQuestion() {
   resetQuestionUI();
   const q = quiz[index];
   $("progressBadge").textContent = `${index + 1} / 10`;
+  $("themeBadge").textContent = q.theme;
+  $("levelBadge").textContent = q.level;
   $("scoreBadge").textContent = `正解 ${score}`;
-  $("modeBadge").textContent = modeLabels[mode];
+  const questionEl = $("questionText");
+  renderJapanesePrompt(questionEl, q.ja);
 
-  if (q.quizType === "vocab") showVocab(q);
-  if (q.quizType === "reorder") showReorder(q);
-  if (q.quizType === "cloze") showCloze(q);
-}
-function showVocab(q) {
-  $("options").classList.remove("hidden");
-  const sameKind = DATA.vocab.filter(w => w.kind === q.kind && w.en !== q.en);
-  if (q.direction === "en-ja") {
-    $("qLabel").textContent = `${q.kind}｜意味を選びましょう`;
-    $("questionText").className = "question";
-    $("questionText").innerHTML = `<b>${escapeHTML(q.en)}</b>`;
-    const wrongs = shuffle(sameKind.filter(w => w.ja !== q.ja)).slice(0,3).map(w => w.ja);
-    renderOptions(shuffle([q.ja, ...wrongs]), q.ja, q);
-  } else {
-    $("qLabel").textContent = `${q.kind}｜英語を選びましょう`;
-    $("questionText").className = "question ja";
-    $("questionText").innerHTML = `<b>${escapeHTML(q.ja)}</b>`;
-    const wrongs = shuffle(sameKind.filter(w => w.en !== q.en)).slice(0,3).map(w => w.en);
-    renderOptions(shuffle([q.en, ...wrongs]), q.en, q);
-  }
-}
-function showCloze(q) {
-  $("options").classList.remove("hidden");
-  $("qLabel").textContent = `穴埋め｜${q.group}`;
-  $("questionText").className = "question";
-  $("questionText").innerHTML = `<b>${escapeHTML(q.sentence)}</b><div style="font-size:clamp(1rem,3vw,1.25rem); color:#68776d; margin-top:10px;">${escapeHTML(q.ja)}</div>`;
-  renderOptions(shuffle(q.options), q.answer, q);
-}
-function renderOptions(list, correct, q) {
-  list.forEach(text => {
-    const btn = document.createElement("button");
-    btn.className = "choiceBtn";
-    btn.innerHTML = `<b>${escapeHTML(text)}</b>`;
-    btn.addEventListener("click", () => choose(text, correct, q));
-    $("options").appendChild(btn);
-  });
-}
-function choose(answer, correct, q) {
-  if (answered) return;
-  answered = true;
-  const isCorrect = answer === correct;
-  if (isCorrect) score++; else mistakes.push(q);
-  $("feedback").className = "feedback " + (isCorrect ? "ok" : "ng");
-  $("feedback").innerHTML = isCorrect
-    ? "正解"
-    : `正解：<b>${escapeHTML(correct)}</b>`;
-  $("nextBtn").classList.remove("hidden");
-}
-function showReorder(q) {
-  $("qLabel").textContent = `並べ替え｜${q.group}`;
-  $("questionText").className = "question ja";
-  $("questionText").innerHTML = `<b>${escapeHTML(q.ja)}</b>`;
-  $("reorderArea").classList.remove("hidden");
-  currentTokens = shuffle(q.tokens.map((text, i) => ({text, id:i})));
+  currentTokens = shuffle(q.tokens.map((text, i) => ({ text, id: i })));
   renderWordBank();
   renderAnswerArea();
 }
+
 function renderWordBank() {
   const bank = $("wordBank");
   bank.innerHTML = "";
@@ -458,6 +710,7 @@ function renderWordBank() {
     btn.className = "tokenBtn";
     btn.innerHTML = `<b>${escapeHTML(tok.text)}</b>`;
     btn.addEventListener("click", () => {
+      if (answered) return;
       currentOrder.push(tok);
       currentTokens = currentTokens.filter(t => t.id !== tok.id);
       renderWordBank();
@@ -466,6 +719,7 @@ function renderWordBank() {
     bank.appendChild(btn);
   });
 }
+
 function renderAnswerArea() {
   const area = $("answerArea");
   area.innerHTML = "";
@@ -473,7 +727,7 @@ function renderAnswerArea() {
     const hint = document.createElement("div");
     hint.style.color = "#68776d";
     hint.style.fontWeight = "900";
-    hint.textContent = "ここに語句を並べます";
+    hint.textContent = "ここに並べます";
     area.appendChild(hint);
     return;
   }
@@ -485,7 +739,9 @@ function renderAnswerArea() {
     area.appendChild(span);
   });
 }
+
 function undoToken(id) {
+  if (answered) return;
   const tok = currentOrder.find(t => t.id === id);
   if (!tok) return;
   currentOrder = currentOrder.filter(t => t.id !== id);
@@ -493,32 +749,42 @@ function undoToken(id) {
   renderWordBank();
   renderAnswerArea();
 }
+
 function undoLast() {
+  if (answered) return;
   const tok = currentOrder.pop();
   if (tok) currentTokens.push(tok);
   renderWordBank();
   renderAnswerArea();
 }
+
 function clearOrder() {
+  if (answered) return;
   currentTokens = [...currentTokens, ...currentOrder];
   currentOrder = [];
   renderWordBank();
   renderAnswerArea();
 }
-function checkOrder() {
+
+function checkAnswer() {
   if (answered) return;
   const q = quiz[index];
   const answer = normalizeSentence(currentOrder.map(t => t.text).join(" "));
   const correct = normalizeSentence(q.answer);
   const isCorrect = answer === correct;
   answered = true;
-  if (isCorrect) score++; else mistakes.push(q);
+
+  if (isCorrect) score++;
+  else mistakes.push(q);
+
   $("feedback").className = "feedback " + (isCorrect ? "ok" : "ng");
   $("feedback").innerHTML = isCorrect
     ? "正解"
     : `正解：<br><b>${escapeHTML(q.answer)}</b>`;
   $("nextBtn").classList.remove("hidden");
+  $("scoreBadge").textContent = `正解 ${score}`;
 }
+
 function nextQuestion() {
   index++;
   if (index >= quiz.length) showResult();
@@ -527,30 +793,27 @@ function nextQuestion() {
     setTimeout(scrollToQuestionTop, 50);
   }
 }
+
 function pickMessage(score) {
   const high = [
-    "すばらしいです！語句と語順がかなり定着しています。仕上げはまちがえた問題だけでOKです。",
-    "とてもよくできました。期末前の確認として、並べ替えをもう一周するとさらに安定します。",
-    "安定感があります。接続詞・助動詞表現・文の形がよく見えています。"
+    "すばらしいです！語順の感覚がしっかり育っています。",
+    "とてもよくできました。短い文から自然に組み立てられています。",
+    "安定感があります。次は★★★にも挑戦できます。"
   ];
   const mid = [
-    "いい感じです。まちがえた問題だけ、声に出してもう一度読むと定着します。",
-    "ここまでできれば大丈夫。あと少し、語順と熟語をセットで確認しましょう。",
-    "よく集中できました。単語だけでなく文の形もつながってきています。"
+    "いい感じです。まちがえた文だけ声に出すと、もっと定着します。",
+    "ここまでできれば大丈夫。語順の型が見えてきています。",
+    "よく集中できました。あと少しでかなり安定します。"
   ];
   const low = [
-    "ここからで大丈夫。まずは単語・熟語を10問、そのあと並べ替えに進みましょう。",
-    "今日は確認の日です。できなかった問題は、次に覚えるチャンスです。",
-    "10問やり切れたことが前進です。同じメニューをもう一度やってみましょう。"
+    "ここからで大丈夫。まずは★やさしいをもう一度やってみましょう。",
+    "10問やり切れたことが前進です。短い文から整えていきましょう。",
+    "あせらなくて大丈夫。語順はくり返すほど見えてきます。"
   ];
   const arr = score >= 8 ? high : score >= 5 ? mid : low;
   return arr[Math.floor(Math.random() * arr.length)];
 }
-function describeMistake(q) {
-  if (q.quizType === "vocab") return `<b>${escapeHTML(q.en)}</b>：${escapeHTML(q.ja)} <span style="color:#68776d;">（${escapeHTML(q.kind)}）</span>`;
-  if (q.quizType === "cloze") return `<b>${escapeHTML(q.sentence.replace("___", q.answer))}</b><br>${escapeHTML(q.ja)}`;
-  return `<b>${escapeHTML(q.answer)}</b><br>${escapeHTML(q.ja)}`;
-}
+
 function showResult() {
   $("quiz").classList.add("hidden");
   $("result").classList.remove("hidden");
@@ -561,34 +824,38 @@ function showResult() {
   if (mistakes.length) {
     const title = document.createElement("div");
     title.className = "reviewItem";
-    title.innerHTML = "<b>復習したい問題</b>";
+    title.innerHTML = "<b>復習したい文</b>";
     review.appendChild(title);
     mistakes.forEach(m => {
       const div = document.createElement("div");
       div.className = "reviewItem";
-      div.innerHTML = describeMistake(m);
+      div.innerHTML = `<b>${escapeHTML(m.answer)}</b><br>${escapeHTML(m.ja)}`;
       review.appendChild(div);
     });
   }
+  setTimeout(() => $("result").scrollIntoView({ behavior: "smooth", block: "start" }), 50);
 }
 
-$("modeGrid").addEventListener("click", e => {
-  const btn = e.target.closest(".modeBtn");
-  if (!btn) return;
-  document.querySelectorAll(".modeBtn").forEach(b => b.classList.remove("selected"));
-  btn.classList.add("selected");
-  mode = btn.dataset.mode;
+window.addEventListener("resize", () => {
+  if (quiz.length && quiz[index]) {
+    const el = $("questionText");
+    if (el) renderJapanesePrompt(el, quiz[index].ja);
+  }
 });
+
 $("startBtn").addEventListener("click", startQuiz);
 $("againBtn").addEventListener("click", startQuiz);
 $("backBtn").addEventListener("click", () => {
   $("result").classList.add("hidden");
   $("setup").classList.remove("hidden");
+  setTimeout(() => $("setup").scrollIntoView({ behavior: "smooth", block: "start" }), 50);
 });
 $("undoBtn").addEventListener("click", undoLast);
 $("clearBtn").addEventListener("click", clearOrder);
-$("checkOrderBtn").addEventListener("click", checkOrder);
+$("checkBtn").addEventListener("click", checkAnswer);
 $("nextBtn").addEventListener("click", nextQuestion);
+
+makeButtons();
 </script>
 </body>
 </html>
